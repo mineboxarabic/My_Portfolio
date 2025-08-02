@@ -18,6 +18,54 @@ export const AiTextEnhancer = () => {
   const popupRef = useRef<HTMLDivElement>(null);
   const promptInputRef = useRef<HTMLTextAreaElement>(null);
 
+  // Helper function to detect context based on current page/form
+  const detectContext = () => {
+    const targetElement = activeElement || preservedElement;
+    if (!targetElement) return null;
+
+    // Check URL path to determine context type
+    const path = window.location.pathname;
+    const elementId = targetElement.id;
+    
+    if (path.includes('/admin')) {
+      // Determine context based on admin page and element
+      if (path.includes('/admin') && elementId) {
+        
+        // Blog context
+        if (elementId.includes('title') || elementId.includes('excerpt') || elementId.includes('content')) {
+          return { type: 'blogs' };
+        }
+        
+        // Project context - check for project detail manager
+        if (path.includes('project') || elementId.includes('problem') || elementId.includes('tagline') || elementId.includes('goal')) {
+          // Try to get project ID from URL
+          const projectIdMatch = path.match(/project\/([^\/]+)/);
+          return { 
+            type: projectIdMatch ? 'project_details' : 'projects', 
+            id: projectIdMatch ? projectIdMatch[1] : undefined 
+          };
+        }
+        
+        // Skills context
+        if (elementId.includes('category') || elementId.includes('skill')) {
+          return { type: 'skills' };
+        }
+        
+        // About context
+        if (elementId.includes('about') || path.includes('about')) {
+          return { type: 'about' };
+        }
+        
+        // General project context if we can't be more specific
+        if (elementId.includes('name') || elementId.includes('description')) {
+          return { type: 'projects' };
+        }
+      }
+    }
+    
+    return null;
+  };
+
   useEffect(() => {
     const targetElement = activeElement || preservedElement;
     
@@ -76,8 +124,13 @@ export const AiTextEnhancer = () => {
     setIsLoading(true);
     setMode('improve');
     try {
+      const context = detectContext();
       const { data, error } = await supabase.functions.invoke('ai-text-helper', {
-        body: { type: 'improve', text: currentText },
+        body: { 
+          type: 'improve', 
+          text: currentText,
+          context: context
+        },
       });
 
       if (error) throw new Error(error.message);
@@ -139,8 +192,13 @@ export const AiTextEnhancer = () => {
     setIsLoading(true);
     setMode('generate');
     try {
+      const context = detectContext();
       const { data, error } = await supabase.functions.invoke('ai-text-helper', {
-        body: { type: 'generate', prompt: promptText },
+        body: { 
+          type: 'generate', 
+          prompt: promptText,
+          context: context
+        },
       });
 
       if (error) throw new Error(error.message);
