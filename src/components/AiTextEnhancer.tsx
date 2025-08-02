@@ -5,9 +5,11 @@ import { Textarea } from '@/components/ui/textarea';
 import { Sparkles, Wand, Loader2, BrainCircuit, ArrowRight, X } from 'lucide-react';
 import { supabase } from '@/integrations/supabase/client';
 import { showError, showSuccess } from '@/utils/toast';
+import { useTranslation } from 'react-i18next';
 
 export const AiTextEnhancer = () => {
-  const { activeElement, updateActiveElementValue, mousePosition } = useAiTextEditor();
+  const { activeElement, updateActiveElementValue, updateMultilingualValue, mousePosition, preservedElement } = useAiTextEditor();
+  const { i18n } = useTranslation();
   const [isLoading, setIsLoading] = useState(false);
   const [mode, setMode] = useState<'idle' | 'improve' | 'generate' | 'prompting'>('idle');
   const [isExpanded, setIsExpanded] = useState(false);
@@ -17,7 +19,9 @@ export const AiTextEnhancer = () => {
   const promptInputRef = useRef<HTMLTextAreaElement>(null);
 
   useEffect(() => {
-    if (!activeElement) {
+    const targetElement = activeElement || preservedElement;
+    
+    if (!targetElement) {
       setIsExpanded(false);
       setMode('idle');
       setPromptText('');
@@ -39,8 +43,15 @@ export const AiTextEnhancer = () => {
       }
 
       setFixedPosition({ top, left });
+    } else if (targetElement && !fixedPosition) {
+      // Fallback positioning if we have an element but no mouse position
+      // Position it near the element
+      const rect = targetElement.getBoundingClientRect();
+      const left = rect.right + window.scrollX + 10;
+      const top = rect.top + window.scrollY;
+      setFixedPosition({ top, left });
     }
-  }, [activeElement, mousePosition, isExpanded, mode]);
+  }, [activeElement, preservedElement, mousePosition, isExpanded, mode]);
 
   useEffect(() => {
     if (mode === 'prompting' && promptInputRef.current) {
@@ -49,19 +60,70 @@ export const AiTextEnhancer = () => {
   }, [mode]);
 
   const handleImprove = async () => {
-    if (!activeElement || !activeElement.value) return;
+    const targetElement = activeElement || preservedElement;
+    if (!targetElement) return;
+    
+    // Get text content from different element types
+    let currentText = '';
+    if (targetElement instanceof HTMLInputElement || targetElement instanceof HTMLTextAreaElement) {
+      currentText = targetElement.value;
+    } else if (targetElement.isContentEditable) {
+      currentText = targetElement.textContent || targetElement.innerText || '';
+    }
+    
+    if (!currentText.trim()) return;
+    
     setIsLoading(true);
     setMode('improve');
     try {
       const { data, error } = await supabase.functions.invoke('ai-text-helper', {
-        body: { type: 'improve', text: activeElement.value },
+        body: { type: 'improve', text: currentText },
       });
 
       if (error) throw new Error(error.message);
       if (data.error) throw new Error(data.error);
 
-      updateActiveElementValue(data.result);
-      showSuccess('Text improved!');
+      // Handle multilingual response
+      const result = data.result;
+      const targetElement = activeElement || preservedElement;
+      
+      console.log('AI Result:', result);
+      console.log('Result type:', typeof result);
+      console.log('Has en/fr/ar:', result?.en, result?.fr, result?.ar);
+      console.log('Is multilingual input:', isMultilingualInput(targetElement));
+      console.log('Target element:', targetElement);
+      
+      if (typeof result === 'object' && result !== null && result.en && result.fr && result.ar && isMultilingualInput(targetElement)) {
+        console.log('Using multilingual update');
+        // Use multilingual update for multilingual inputs
+        updateMultilingualValue(result);
+        showSuccess('Text improved in all languages!');
+      } else {
+        console.log('Using single language update - reason:', {
+          isObject: typeof result === 'object',
+          notNull: result !== null,
+          hasEn: !!result?.en,
+          hasFr: !!result?.fr,
+          hasAr: !!result?.ar,
+          isMultilingual: isMultilingualInput(targetElement)
+        });
+        // Fallback to single language update
+        const currentLang = i18n.language;
+        let textToInsert = '';
+        
+        if (typeof result === 'string') {
+          // If result is a string, use it directly
+          textToInsert = result;
+        } else if (typeof result === 'object' && result !== null) {
+          // If result is an object, try to get the appropriate language
+          textToInsert = result[currentLang] || result.en || result.fr || result.ar || JSON.stringify(result);
+        } else {
+          textToInsert = 'Improved text';
+        }
+        
+        updateActiveElementValue(textToInsert);
+        showSuccess('Text improved!');
+      }
     } catch (err) {
       showError(err instanceof Error ? err.message : 'Failed to improve text.');
     } finally {
@@ -84,8 +146,47 @@ export const AiTextEnhancer = () => {
       if (error) throw new Error(error.message);
       if (data.error) throw new Error(data.error);
 
-      updateActiveElementValue(data.result);
-      showSuccess('Text generated!');
+      // Handle multilingual response
+      const result = data.result;
+      const targetElement = activeElement || preservedElement;
+      
+      console.log('Generate AI Result:', data);
+      console.log('Generate Result type:', typeof result);
+      console.log('Generate Has en/fr/ar:', result?.en, result?.fr, result?.ar);
+      console.log('Generate Is multilingual input:', isMultilingualInput(targetElement));
+      console.log('Generate Target element:', targetElement);
+      
+      if (typeof result === 'object' && result !== null && result.en && result.fr && result.ar && isMultilingualInput(targetElement)) {
+        console.log('Generate Using multilingual update');
+        // Use multilingual update for multilingual inputs
+        updateMultilingualValue(result);
+        showSuccess('Text generated in all languages!');
+      } else {
+        console.log('Generate Using single language update - reason:', {
+          isObject: typeof result === 'object',
+          notNull: result !== null,
+          hasEn: !!result?.en,
+          hasFr: !!result?.fr,
+          hasAr: !!result?.ar,
+          isMultilingual: isMultilingualInput(targetElement)
+        });
+        // Fallback to single language update
+        const currentLang = i18n.language;
+        let textToInsert = '';
+        
+        if (typeof result === 'string') {
+          // If result is a string, use it directly
+          textToInsert = result;
+        } else if (typeof result === 'object' && result !== null) {
+          // If result is an object, try to get the appropriate language
+          textToInsert = result[currentLang] || result.en || result.fr || result.ar || JSON.stringify(result);
+        } else {
+          textToInsert = 'Generated text';
+        }
+
+        updateActiveElementValue(textToInsert);
+        showSuccess('Text generated!');
+      }
     } catch (err) {
       showError(err instanceof Error ? err.message : 'Failed to generate text.');
     } finally {
@@ -101,7 +202,34 @@ export const AiTextEnhancer = () => {
     handleGenerate();
   };
 
-  if (!activeElement || !fixedPosition) {
+  // Helper function to check if element has text content
+  const hasTextContent = (element: HTMLElement | null): boolean => {
+    if (!element) return false;
+    
+    if (element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement) {
+      return !!element.value.trim();
+    } else if (element.isContentEditable) {
+      const text = element.textContent || element.innerText || '';
+      return !!text.trim();
+    }
+    return false;
+  };
+
+  // Helper function to check if the current input is part of a multilingual form
+  const isMultilingualInput = (element: HTMLElement | null): boolean => {
+    if (!element) {
+      console.log('isMultilingualInput: No element');
+      return false;
+    }
+    const elementId = element.id;
+    const result = elementId && (elementId.includes('-en') || elementId.includes('-fr') || elementId.includes('-ar'));
+    console.log('isMultilingualInput check:', { elementId, result });
+    return result;
+  };
+
+  const targetElement = activeElement || preservedElement;
+
+  if (!targetElement || !fixedPosition) {
     return null;
   }
 
@@ -156,6 +284,8 @@ export const AiTextEnhancer = () => {
     }
 
     if (isExpanded) {
+      const isMultilingual = isMultilingualInput(targetElement);
+      
       return (
         <div className="p-1 flex items-center">
           <Button
@@ -164,19 +294,21 @@ export const AiTextEnhancer = () => {
             onClick={() => setMode('prompting')}
             disabled={isLoading}
             className="flex items-center gap-1"
+            title={isMultilingual ? "Generate text in all languages (EN, FR, AR)" : "Generate text"}
           >
             <Wand className="h-4 w-4" />
-            Generate
+            {isMultilingual ? "Generate All" : "Generate"}
           </Button>
           <Button
             size="sm"
             variant="ghost"
             onClick={handleImprove}
-            disabled={isLoading || !activeElement.value}
+            disabled={isLoading || !hasTextContent(targetElement)}
             className="flex items-center gap-1"
+            title={isMultilingual ? "Improve text in all languages (EN, FR, AR)" : "Improve text"}
           >
             {isLoading && mode === 'improve' ? <Loader2 className="h-4 w-4 animate-spin" /> : <Sparkles className="h-4 w-4" />}
-            Improve
+            {isMultilingual ? "Improve All" : "Improve"}
           </Button>
         </div>
       );
@@ -202,8 +334,24 @@ export const AiTextEnhancer = () => {
       ref={popupRef}
       style={popupStyle}
       data-ai-popup="true"
-      className={`bg-background border rounded-lg shadow-lg flex animate-fade-in ${mode === 'prompting' ? 'w-80' : ''}`}
+      className={`bg-background border rounded-lg shadow-lg flex flex-col animate-fade-in ${mode === 'prompting' ? 'w-80' : ''}`}
+      onMouseDown={(e) => {
+        // Prevent the popup from disappearing when clicking on it
+        e.preventDefault();
+        e.stopPropagation();
+      }}
+      onClick={(e) => {
+        // Prevent click events from bubbling up
+        e.stopPropagation();
+      }}
     >
+      {/* Multilingual indicator */}
+      {isMultilingualInput(targetElement) && (
+        <div className="px-2 py-1 bg-blue-50 dark:bg-blue-950 border-b text-xs text-blue-600 dark:text-blue-400 flex items-center gap-1">
+          <span className="inline-block w-2 h-2 bg-blue-500 rounded-full"></span>
+          Multilingual Mode (EN, FR, AR)
+        </div>
+      )}
       {renderContent()}
     </div>
   );
