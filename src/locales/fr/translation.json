@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "Accueil",
+    "projects": "Projets",
+    "about": "À propos",
+    "skills": "Compétences",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "hero": {
+    "name": "Yassin Younes",
+    "title": "Je suis un Développeur Full-Stack",
+    "subtitle": "Je construis des applications web modernes, réactives et riches en fonctionnalités, du front-end au back-end.",
+    "viewWork": "Voir mes projets",
+    "getInTouch": "Contactez-moi"
+  },
+  "projects": {
+    "title": "Mes Projets",
+    "subtitle": "Voici quelques-uns des projets sur lesquels je suis fier d'avoir travaillé.",
+    "featured": "En vedette",
+    "code": "Code",
+    "liveDemo": "Démo live",
+    "viewDetails": "Voir les détails"
+  },
+  "about": {
+    "title": "À propos de moi",
+    "noInfo": "Les informations à mon sujet ne sont pas encore disponibles. Veuillez revenir plus tard."
+  },
+  "skills": {
+    "title": "Mes Compétences",
+    "subtitle": "Un aperçu de mes capacités techniques et de mon expertise.",
+    "uncategorized": "Non classé"
+  },
+  "contact": {
+    "title": "Contactez-moi",
+    "subtitle": "Vous avez un projet en tête ou vous voulez simplement dire bonjour ?",
+    "description": "Je suis toujours ouvert à la discussion de nouveaux projets, d'idées créatives ou d'opportunités de faire partie d'une vision ambitieuse. N'hésitez pas à me contacter.",
+    "formTitle": "Envoyez-moi un message",
+    "nameLabel": "Votre Nom",
+    "namePlaceholder": "Jean Dupont",
+    "emailLabel": "Votre Email",
+    "emailPlaceholder": "jean.dupont@example.com",
+    "messageLabel": "Votre Message",
+    "messagePlaceholder": "Salut Yassin, connectons-nous !",
+    "sendMessage": "Envoyer le message",
+    "formSuccess": "Message envoyé avec succès !",
+    "formError": "Veuillez remplir tous les champs."
+  },
+  "footer": {
+    "copyright": "© 2024 Yassin Younes. Tous droits réservés."
+  },
+  "blog": {
+    "title": "Mon Blog",
+    "subtitle": "Réflexions, tutoriels et histoires sur le développement web et la technologie.",
+    "readMore": "Lire la suite"
+  },
+  "projectDetail": {
+    "loading": "Chargement des détails du projet...",
+    "projectNotFound": "Projet non trouvé",
+    "goBackHome": "Retour à l'accueil",
+    "backToPortfolio": "Retour au portfolio",
+    "viewLiveDemo": "Voir la démo live",
+    "viewCode": "Voir le code",
+    "watchDemo": "Regarder la démo",
+    "builtWith": "Réalisé avec",
+    "projectOverview": "Aperçu du projet",
+    "theChallenge": "Le Défi",
+    "theSolution": "La Solution",
+    "myRole": "Mon Rôle",
+    "keyFeatures": "Fonctionnalités Clés",
+    "projectImpact": "Impact du Projet",
+    "projectDetails": "En détail",
+    "designAndUx": "Décisions de Design & UX",
+    "challengesAndSolutions": "Défis & Solutions",
+    "challengesFaced": "Défis rencontrés",
+    "solutionsImplemented": "Solutions mises en œuvre",
+    "lessonsAndFuture": "Leçons & Avenir",
+    "lessonsLearned": "Leçons apprises",
+    "futureImprovements": "Améliorations futures"
+  }
+}

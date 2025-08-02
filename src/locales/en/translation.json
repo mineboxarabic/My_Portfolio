@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "Home",
+    "projects": "Projects",
+    "about": "About",
+    "skills": "Skills",
+    "contact": "Contact",
+    "blog": "Blog"
+  },
+  "hero": {
+    "name": "Yassin Younes",
+    "title": "I'm a Full-Stack Developer",
+    "subtitle": "I build modern, responsive, and feature-rich web applications from front to back.",
+    "viewWork": "View My Work",
+    "getInTouch": "Get in Touch"
+  },
+  "projects": {
+    "title": "My Projects",
+    "subtitle": "Here are some of the projects I'm proud to have worked on.",
+    "featured": "Featured",
+    "code": "Code",
+    "liveDemo": "Live Demo",
+    "viewDetails": "View Details"
+  },
+  "about": {
+    "title": "About Me",
+    "noInfo": "Information about me is not available yet. Please check back later."
+  },
+  "skills": {
+    "title": "My Skills",
+    "subtitle": "A showcase of my technical abilities and expertise.",
+    "uncategorized": "Uncategorized"
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Have a project in mind or just want to say hi?",
+    "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of an ambitious vision. Feel free to reach out.",
+    "formTitle": "Send me a message",
+    "nameLabel": "Your Name",
+    "namePlaceholder": "John Doe",
+    "emailLabel": "Your Email",
+    "emailPlaceholder": "john.doe@example.com",
+    "messageLabel": "Your Message",
+    "messagePlaceholder": "Hi Yassin, let's connect!",
+    "sendMessage": "Send Message",
+    "formSuccess": "Message sent successfully!",
+    "formError": "Please fill out all fields."
+  },
+  "footer": {
+    "copyright": "© 2024 Yassin Younes. All rights reserved."
+  },
+  "blog": {
+    "title": "My Blog",
+    "subtitle": "Thoughts, tutorials, and stories about web development and technology.",
+    "readMore": "Read More"
+  },
+  "projectDetail": {
+    "loading": "Loading project details...",
+    "projectNotFound": "Project Not Found",
+    "goBackHome": "Go Back Home",
+    "backToPortfolio": "Back to Portfolio",
+    "viewLiveDemo": "View Live Demo",
+    "viewCode": "View Code",
+    "watchDemo": "Watch Demo",
+    "builtWith": "Built With",
+    "projectOverview": "Project Overview",
+    "theChallenge": "The Challenge",
+    "theSolution": "The Solution",
+    "myRole": "My Role",
+    "keyFeatures": "Key Features",
+    "projectImpact": "Project Impact",
+    "projectDetails": "Diving Deeper",
+    "designAndUx": "Design & UX Decisions",
+    "challengesAndSolutions": "Challenges & Solutions",
+    "challengesFaced": "Challenges Faced",
+    "solutionsImplemented": "Solutions Implemented",
+    "lessonsAndFuture": "Lessons & Future",
+    "lessonsLearned": "Lessons Learned",
+    "futureImprovements": "Future Improvements"
+  }
+}

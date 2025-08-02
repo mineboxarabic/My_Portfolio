@@ -1,0 +1,81 @@
+{
+  "nav": {
+    "home": "الرئيسية",
+    "projects": "المشاريع",
+    "about": "عني",
+    "skills": "المهارات",
+    "contact": "اتصل بي",
+    "blog": "المدونة"
+  },
+  "hero": {
+    "name": "ياسين يونس",
+    "title": "أنا مطور ويب متكامل",
+    "subtitle": "أقوم ببناء تطبيقات ويب حديثة ومتجاوبة وغنية بالميزات من الواجهة الأمامية إلى الخلفية.",
+    "viewWork": "شاهد أعمالي",
+    "getInTouch": "تواصل معي"
+  },
+  "projects": {
+    "title": "مشاريعي",
+    "subtitle": "إليك بعض المشاريع التي أفخر بالعمل عليها.",
+    "featured": "مميز",
+    "code": "الكود",
+    "liveDemo": "عرض مباشر",
+    "viewDetails": "عرض التفاصيل"
+  },
+  "about": {
+    "title": "عني",
+    "noInfo": "المعلومات عني غير متوفرة بعد. يرجى التحقق مرة أخرى في وقت لاحق."
+  },
+  "skills": {
+    "title": "مهاراتي",
+    "subtitle": "استعراض لقدراتي وخبراتي التقنية.",
+    "uncategorized": "غير مصنف"
+  },
+  "contact": {
+    "title": "تواصل معي",
+    "subtitle": "هل لديك مشروع في ذهنك أو تريد فقط أن تقول مرحباً؟",
+    "description": "أنا منفتح دائمًا لمناقشة المشاريع الجديدة أو الأفكار الإبداعية أو فرص أن أكون جزءًا من رؤية طموحة. لا تتردد في التواصل.",
+    "formTitle": "أرسل لي رسالة",
+    "nameLabel": "اسمك",
+    "namePlaceholder": "فلان الفلاني",
+    "emailLabel": "بريدك الإلكتروني",
+    "emailPlaceholder": "john.doe@example.com",
+    "messageLabel": "رسالتك",
+    "messagePlaceholder": "مرحباً ياسين، لنتواصل!",
+    "sendMessage": "إرسال الرسالة",
+    "formSuccess": "تم إرسال الرسالة بنجاح!",
+    "formError": "يرجى ملء جميع الحقول."
+  },
+  "footer": {
+    "copyright": "© 2024 ياسين يونس. جميع الحقوق محفوظة."
+  },
+  "blog": {
+    "title": "مدونتي",
+    "subtitle": "أفكار ودروس وقصص حول تطوير الويب والتكنولوجيا.",
+    "readMore": "اقرأ المزيد"
+  },
+  "projectDetail": {
+    "loading": "جاري تحميل تفاصيل المشروع...",
+    "projectNotFound": "المشروع غير موجود",
+    "goBackHome": "العودة إلى الصفحة الرئيسية",
+    "backToPortfolio": "العودة إلى المحفظة",
+    "viewLiveDemo": "مشاهدة العرض المباشر",
+    "viewCode": "مشاهدة الكود",
+    "watchDemo": "مشاهدة الفيديو",
+    "builtWith": "تم البناء باستخدام",
+    "projectOverview": "نظرة عامة على المشروع",
+    "theChallenge": "التحدي",
+    "theSolution": "الحل",
+    "myRole": "دوري",
+    "keyFeatures": "الميزات الرئيسية",
+    "projectImpact": "تأثير المشروع",
+    "projectDetails": "الغوص أعمق",
+    "designAndUx": "قرارات التصميم وتجربة المستخدم",
+    "challengesAndSolutions": "التحديات والحلول",
+    "challengesFaced": "التحديات التي واجهتها",
+    "solutionsImplemented": "الحلول المنفذة",
+    "lessonsAndFuture": "الدروس والمستقبل",
+    "lessonsLearned": "الدروس المستفادة",
+    "futureImprovements": "التحسينات المستقبلية"
+  }
+}
