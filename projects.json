@@ -1,5 +1,3 @@
-
-
 [
   {
     "id": "80103345-aa56-4699-8256-560df53733bf",
@@ -13,7 +11,7 @@
     ],
     "github_url": null,
     "live_url": null,
-    "thumbnail_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1753984497701-bloomfx-0.8765791947944768.png",
+    "thumbnail_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754118577274.png",
     "stars": 43,
     "featured": false,
     "created_at": "2025-07-31T17:55:07.442566+00:00",
@@ -80,7 +78,7 @@
       "impact_stats": [],
       "video_demo_url": "",
       "created_at": "2025-07-31T17:55:07.543215+00:00",
-      "updated_at": "2025-08-02T11:28:51.267727+00:00",
+      "updated_at": "2025-08-03T13:48:55.085569+00:00",
       "tagline": {
         "ar": "نظم مهامك بشكل رائع على حاسوبك الشخصي",
         "en": "Organize Your Tasks Beautifully localy on your computer",
@@ -128,288 +126,736 @@
       }
     }
   },
-{
-"id": "80103445-aa56-4699-8256-560df53733bf",
-  "tech_stack": [
-    "React",
-    "Node.js",
-    "Express.js",
-    "MongoDB",
-    "JWT",
-    "OAuth"
-  ],
-  "github_url": "https://github.com/mineboxarabic/ProxiMap",
-  "live_url": "",
-  "thumbnail_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
-  "stars": 102,
-  "featured": true,
-  "created_at": "2025-06-01T12:00:00Z",
-  "updated_at": "2025-08-02T14:00:00Z",
+  {
+    "id": "80103445-aa56-4699-8256-560df53733bf",
+    "tech_stack": [
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "JWT",
+      "OAuth"
+    ],
+    "github_url": "https://github.com/mineboxarabic/ProxiMap",
+    "live_url": "",
+    "thumbnail_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
+    "stars": 102,
+    "featured": true,
+    "created_at": "2025-06-01T12:00:00+00:00",
+    "updated_at": "2025-08-02T14:00:00+00:00",
+    "name": {
+      "ar": "بروكسيماب",
+      "en": "ProxiMap",
+      "fr": "ProxiMap"
+    },
+    "description": {
+      "ar": "منصة تفاعلية تربط الناس بالخدمات المحلية كالتنظيف، الدعم التقني، أو الاستشارات.",
+      "en": "An interactive platform connecting people with local services like cleaning, tech support, or consultations.",
+      "fr": "Une plateforme interactive reliant les gens aux services locaux tels que le ménage, le support tech ou les consultations."
+    },
+    "details": {
+      "hero_image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap%20(online-video-cutter.com).gif?raw=true",
+      "before_after_images": [],
+      "key_features": [
+        {
+          "icon": "👤",
+          "title": {
+            "ar": "إدارة حسابات المستخدمين",
+            "en": "User Account Management",
+            "fr": "Gestion des comptes utilisateurs"
+          },
+          "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
+          "description": {
+            "ar": "نظام تسجيل آمن، تخصيص الحساب، وإدارة من طرف الإدارة.",
+            "en": "Secure signup, profile customization, and admin-level user management.",
+            "fr": "Inscription sécurisée, personnalisation de profil et gestion par les admins."
+          }
+        },
+        {
+          "icon": "💬",
+          "title": {
+            "ar": "الدردشة والتواصل",
+            "en": "In-app Chat and Interaction",
+            "fr": "Chat intégré et interaction"
+          },
+          "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
+          "description": {
+            "ar": "نظام مراسلة داخلي، مع تقارير وشكاوى.",
+            "en": "Built-in chat system with report and complaint management.",
+            "fr": "Système de messagerie avec gestion des signalements."
+          }
+        },
+        {
+          "icon": "🔍",
+          "title": {
+            "ar": "إدارة العروض والخدمات",
+            "en": "Service Posting & Filtering",
+            "fr": "Publication & filtrage des services"
+          },
+          "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/Filter.gif?raw=true",
+          "description": {
+            "ar": "فلترة حسب الموقع، النوع، الحالة والمزيد.",
+            "en": "Search & filter services by location, category, status, etc.",
+            "fr": "Recherche & filtrage par lieu, catégorie, statut, etc."
+          }
+        },
+        {
+          "icon": "⚙️",
+          "title": {
+            "ar": "إدارة التصنيفات والمحتوى",
+            "en": "Category & Content Management",
+            "fr": "Gestion des catégories et contenu"
+          },
+          "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/CRUD.gif?raw=true",
+          "description": {
+            "ar": "إنشاء وتعديل التصنيفات من قبل المشرفين.",
+            "en": "Admins can manage categories and customize platform content.",
+            "fr": "Les admins gèrent les catégories et personnalisent le contenu."
+          }
+        }
+      ],
+      "impact_stats": [
+        {
+          "value": "200+",
+          "metric": {
+            "ar": "خدمة مضافة",
+            "en": "Services Posted",
+            "fr": "Services publiés"
+          },
+          "description": {
+            "ar": "منذ الإطلاق، تم نشر أكثر من 200 خدمة.",
+            "en": "Over 200 services posted since launch.",
+            "fr": "Plus de 200 services publiés depuis le lancement."
+          }
+        }
+      ],
+      "video_demo_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap%20(online-video-cutter.com).gif?raw=true",
+      "created_at": "2025-06-01T12:00:00+00:00",
+      "updated_at": "2025-08-03T13:48:55.085569+00:00",
+      "tagline": {
+        "ar": "الخريطة الذكية لطلب وعرض الخدمات في منطقتك.",
+        "en": "The smart map for offering and finding services near you.",
+        "fr": "La carte intelligente pour offrir et trouver des services près de chez vous."
+      },
+      "problem_statement": {
+        "ar": "لا توجد وسيلة سهلة وآمنة لعرض أو طلب خدمات محلية من الهاتف أو الكمبيوتر.",
+        "en": "There was no easy and secure way to request or offer local services digitally.",
+        "fr": "Il n'y avait pas de moyen simple et sécurisé pour publier ou chercher des services locaux en ligne."
+      },
+      "project_goal": {
+        "ar": "بناء تطبيق تفاعلي يسهل الوصول للخدمات وتبادلها.",
+        "en": "Build an app that simplifies discovering and exchanging services interactively.",
+        "fr": "Créer une app qui facilite la découverte et l’échange de services de manière interactive."
+      },
+      "your_role": {
+        "ar": "المطور الرئيسي من A إلى Z، من الواجهة الخلفية إلى الخريطة والـ Auth.",
+        "en": "Solo fullstack developer — built backend, frontend, map logic, and auth flows.",
+        "fr": "Développeur fullstack solo — backend, frontend, cartes, authentification."
+      },
+      "design_decisions": {
+        "ar": "اعتمدت خريطة تفاعلية بسيطة، نظام دردشة مدمج، وفلترة سهلة.",
+        "en": "Used interactive map, built-in chat, and simple UX filtering system.",
+        "fr": "Carte interactive, chat intégré, et système de filtrage simplifié."
+      },
+      "challenges": {
+        "ar": "ربط البيانات الحية مع الخريطة والتعامل مع صلاحيات مختلفة للمستخدمين.",
+        "en": "Live syncing data with map view and managing user roles.",
+        "fr": "Synchronisation temps réel avec la carte et gestion des rôles utilisateurs."
+      },
+      "solutions": {
+        "ar": "استخدام Leaflet + Mongo Queries + JWT لفصل كل نوع مستخدم.",
+        "en": "Used Leaflet, scoped Mongo queries, and JWT for user roles.",
+        "fr": "Leaflet + requêtes Mongo spécifiques + JWT pour les rôles."
+      },
+      "lessons_learned": {
+        "ar": "فهم عميق لكيفية ربط الخريطة بالباك وتصميم نظام صلاحيات حقيقي.",
+        "en": "Gained deep experience in map integration and building real auth roles.",
+        "fr": "Expérience approfondie en cartographie et système d’authentification réel."
+      },
+      "future_improvements": {
+        "ar": "إضافة تطبيق جوال، إشعارات لحظية، وتقييمات لكل خدمة.",
+        "en": "Mobile app, real-time notifications, and review/rating system.",
+        "fr": "App mobile, notifications temps réel, système d’avis."
+      }
+    }
+  },
+  {
+    "id": "80103445-aa46-4699-8256-560df53733bf",
+    "tech_stack": [
+      "React",
+      "React-leaflet",
+      "React-router-dom",
+      "useState",
+      "useEffect",
+      "useRef",
+      "useContext"
+    ],
+    "github_url": "https://github.com/mineboxarabic/ArlesXAgenda",
+    "live_url": "",
+    "thumbnail_url": "https://i.ibb.co/FnxP455/1.png",
+    "stars": 34,
+    "featured": false,
+    "created_at": "2025-05-10T10:00:00+00:00",
+    "updated_at": "2025-08-02T14:30:00+00:00",
+    "name": {
+      "ar": "أرلس أكس أجندة",
+      "en": "ArlesXAgenda",
+      "fr": "ArlesXAgenda"
+    },
+    "description": {
+      "ar": "تطبيق ويب لعرض الفعاليات بمدينة أرلس مع إمكانية الفلترة والمشاهدة على الخريطة.",
+      "en": "A web app for viewing events in Arles with filtering and map support.",
+      "fr": "Une application web pour afficher les événements à Arles avec filtres et carte."
+    },
+    "details": {
+      "hero_image_url": "https://i.ibb.co/VtM2Wh1/6.png",
+      "before_after_images": [
+        "https://i.ibb.co/3cknQVf/3.png",
+        "https://i.ibb.co/3sCfxbK/66.png"
+      ],
+      "key_features": [
+        {
+          "icon": "📅",
+          "title": {
+            "ar": "فلترة الفعاليات",
+            "en": "Event Filtering",
+            "fr": "Filtrage des événements"
+          },
+          "image_url": "https://i.ibb.co/54sw6RL/4.png",
+          "description": {
+            "ar": "فلترة حسب التاريخ، النوع، أو الموقع.",
+            "en": "Filter by date, category, or location.",
+            "fr": "Filtrage par date, catégorie ou localisation."
+          }
+        },
+        {
+          "icon": "🗺️",
+          "title": {
+            "ar": "عرض على الخريطة",
+            "en": "Map View",
+            "fr": "Vue carte"
+          },
+          "image_url": "https://i.ibb.co/3sCfxbK/66.png",
+          "description": {
+            "ar": "عرض الفعاليات مباشرة على خريطة تفاعلية.",
+            "en": "Display events directly on an interactive map.",
+            "fr": "Affichage des événements sur une carte interactive."
+          }
+        },
+        {
+          "icon": "📆",
+          "title": {
+            "ar": "عرض شهري",
+            "en": "Month View",
+            "fr": "Vue mensuelle"
+          },
+          "image_url": "https://i.ibb.co/VtM2Wh1/6.png",
+          "description": {
+            "ar": "عرض الفعاليات حسب الأشهر وتفاصيلها.",
+            "en": "View events by month with detailed breakdown.",
+            "fr": "Voir les événements par mois avec détails."
+          }
+        }
+      ],
+      "impact_stats": [],
+      "video_demo_url": "",
+      "created_at": "2025-05-10T10:00:00+00:00",
+      "updated_at": "2025-08-03T13:48:55.085569+00:00",
+      "tagline": {
+        "ar": "منصة عرض فعاليات أرلس بطريقة سهلة وتفاعلية.",
+        "en": "Showcasing Arles' events the smart and interactive way.",
+        "fr": "Affichage intelligent et interactif des événements d'Arles."
+      },
+      "problem_statement": {
+        "ar": "كان من الصعب على المستخدمين الوصول لفعاليات المدينة بطريقة موحدة وسهلة.",
+        "en": "Users lacked a centralized, user-friendly way to access city events.",
+        "fr": "Les utilisateurs manquaient d’un moyen centralisé pour consulter les événements de la ville."
+      },
+      "project_goal": {
+        "ar": "تسهيل الوصول إلى فعاليات المدينة ومساعدتهم في تنظيم حضورهم.",
+        "en": "Make it easy for users to find and plan events around Arles.",
+        "fr": "Faciliter la planification et la découverte d'événements à Arles."
+      },
+      "your_role": {
+        "ar": "طورت الواجهة بالكامل وربطت الفلاتر والخرائط والمعاينة الشهرية بالبيانات.",
+        "en": "Developed the frontend and implemented filtering, maps, and calendar logic.",
+        "fr": "Développement complet du frontend avec filtres, cartes et calendrier."
+      },
+      "design_decisions": {
+        "ar": "اخترت استخدام خريطة تفاعلية وفلترة سريعة لتجربة مستخدم مريحة.",
+        "en": "Interactive maps and fast filters were chosen for smoother UX.",
+        "fr": "Cartes interactives et filtres rapides pour une meilleure expérience."
+      },
+      "challenges": {
+        "ar": "ملف JSON كبير، صعوبة رسم الفعاليات على الخريطة، واختيار ستايل نظيف.",
+        "en": "Big JSON file, event mapping, and styling were the main challenges.",
+        "fr": "Gros fichier JSON, affichage des événements sur carte et choix de design."
+      },
+      "solutions": {
+        "ar": "استخدمت هاشماب لتنظيم البيانات وسياق لتبادلها داخل التطبيق.",
+        "en": "Used hashmap to organize data and context API for state sharing.",
+        "fr": "Utilisation de hashmap et context pour le partage de données."
+      },
+      "lessons_learned": {
+        "ar": "فهمت كيف أتعامل مع بيانات ضخمة وأربطها بخريطة وبواجهة مستخدم مرنة.",
+        "en": "Learned to handle large data and build responsive UI with map integration.",
+        "fr": "Apprentissage de la gestion de données volumineuses et d’une UI réactive."
+      },
+      "future_improvements": {
+        "ar": "إضافة خيارات مشاركة الحدث وتقييمات المستخدمين.",
+        "en": "Add social sharing and user rating features.",
+        "fr": "Ajouter le partage d'événements et des évaluations utilisateurs."
+      }
+    }
+  },
+  {
+    "id": "80103445-aa42-4399-8256-560df53733bf",
+    "tech_stack": [
+      "React 18",
+      "TypeScript",
+      "Vite",
+      "Tailwind CSS",
+      "Shadcn/ui",
+      "Lucide React",
+      "Radix UI",
+      "Framer Motion",
+      "Supabase",
+      "PostgreSQL",
+      "React Router",
+      "React i18next"
+    ],
+    "github_url": "https://github.com/mineboxarabic/FlashcardsRe",
+    "live_url": "https://flashcards-re.vercel.app/",
+    "thumbnail_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236312765.PNG",
+    "stars": 96,
+    "featured": true,
+    "created_at": "2025-06-20T12:00:00+00:00",
+    "updated_at": "2025-08-03T14:00:00+00:00",
+    "name": {
+      "ar": "نيورو كاردز",
+      "en": "NeuroCards",
+      "fr": "NeuroCards"
+    },
+    "description": {
+      "ar": "تطبيق فلاش كارد ذكي يعتمد على التكرار المتباعد ومبني باستخدام تقنيات الويب الحديثة.",
+      "en": "A smart flashcard app powered by spaced repetition and built with modern web tech.",
+      "fr": "Une application de cartes mémoire intelligente basée sur la répétition espacée et les technologies web modernes."
+    },
+    "details": {
+      "hero_image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754235839292.PNG",
+      "before_after_images": [
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.2643171525821555.png",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.9639543838942902.png",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.8932207011488998.png",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.4847411431698958.png",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.9071270751389083.png",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.5145633330478335.png",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.645241952817178.png",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.09676125567367444.png",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236080700-0.9870413845731858.png"
+      ],
+      "key_features": [
+        {
+          "icon": "🧠",
+          "title": {
+            "ar": "محرك التكرار المتباعد",
+            "en": "Spaced Repetition Engine",
+            "fr": "Moteur de répétition espacée"
+          },
+          "image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754235893654.png",
+          "description": {
+            "ar": "البطاقات تتكيف حسب أدائك في التذكر.",
+            "en": "Cards adapt based on how well you remember them.",
+            "fr": "Les cartes s'adaptent selon votre niveau de mémorisation."
+          }
+        },
+        {
+          "icon": "📚",
+          "title": {
+            "ar": "أنواع متعددة من البطاقات",
+            "en": "Multiple Card Types",
+            "fr": "Types de cartes multiples"
+          },
+          "image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236021444.png",
+          "description": {
+            "ar": "بطاقات عادية، اختيار من متعدد، املأ الفراغ، واكتب الجواب.",
+            "en": "Basic, multiple choice, fill in the blank, and type the answer.",
+            "fr": "Classique, choix multiple, texte à compléter et réponse saisie."
+          }
+        },
+        {
+          "icon": "📊",
+          "title": {
+            "ar": "سلاسل وإحصائيات",
+            "en": "Streaks and Statistics",
+            "fr": "Séries et statistiques"
+          },
+          "image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236038804.png",
+          "description": {
+            "ar": "تتبع تقدمك وسلسلة الدراسة اليومية.",
+            "en": "Track your learning progress and daily study streak.",
+            "fr": "Suivez vos progrès et votre série d'études quotidienne."
+          }
+        },
+        {
+          "icon": "",
+          "title": {
+            "ar": "دعم كامل للغة العربية",
+            "en": "Comprehensive RTL Support",
+            "fr": "Support complet pour les RTL"
+          },
+          "image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236224810.png",
+          "description": {
+            "ar": "يُدعم التطبيق الترجمة إلى اللغة العربية بشكل كامل.",
+            "en": "The application fully supports Arabic translation.",
+            "fr": "L'application prend pleinement en charge la traduction en arabe."
+          }
+        }
+      ],
+      "impact_stats": [
+        {
+          "value": "500+",
+          "metric": {
+            "ar": "عدد البطاقات",
+            "en": "Cards Created",
+            "fr": "Cartes créées"
+          },
+          "description": {
+            "ar": "أكثر من 500 بطاقة تم إنشاؤها خلال التطوير والاختبار.",
+            "en": "Over 500 cards created during development and testing.",
+            "fr": "Plus de 500 cartes créées durant le développement et les tests."
+          }
+        },
+        {
+          "value": "15 min",
+          "metric": {
+            "ar": "متوسط مدة الدراسة",
+            "en": "Avg Study Session",
+            "fr": "Durée moyenne d'étude"
+          },
+          "description": {
+            "ar": "متوسط طول الجلسة حسب الاختبارات.",
+            "en": "Average session length during user testing.",
+            "fr": "Durée moyenne de session durant les tests."
+          }
+        }
+      ],
+      "video_demo_url": "",
+      "created_at": null,
+      "updated_at": "2025-08-03T15:50:54.426527+00:00",
+      "tagline": {
+        "ar": "أتقن أي شيء باستخدام بطاقات ذكية",
+        "en": "Master Anything with Intelligent Flashcards",
+        "fr": "Maîtrisez tout avec des cartes mémoire intelligentes"
+      },
+      "problem_statement": {
+        "ar": "المتعلمون بحاجة إلى تطبيق حديث لتسهيل الحفظ والاستيعاب باستخدام التكرار المتباعد.",
+        "en": "Learners needed a modern app to memorize and retain knowledge efficiently with spaced repetition.",
+        "fr": "Les apprenants avaient besoin d'une application moderne pour mémoriser efficacement grâce à la répétition espacée."
+      },
+      "project_goal": {
+        "ar": "بناء نظام بطاقات ذكية سريع وتفاعلي مع جدولة ذكية وتحليلات متقدمة.",
+        "en": "To build a fast, responsive, and powerful flashcard system with adaptive scheduling and analytics.",
+        "fr": "Créer un système de cartes mémoire rapide, réactif et puissant avec planification adaptative et analyses."
+      },
+      "your_role": {
+        "ar": "كمطور منفرد، قمت بتطوير الواجهة الخلفية والأمامية والخوارزمية واتخذت قرارات التصميم.",
+        "en": "Solo fullstack developer: I built the backend, frontend, algorithm, and handled design decisions.",
+        "fr": "Développeur fullstack solo : J'ai développé le backend, le frontend, l'algorithme et les choix de design."
+      },
+      "design_decisions": {
+        "ar": "استخدمت Tailwind و Shadcn لتصميم نظيف، ودعمت تعدد اللغات والـ RTL، مع انتقالات سلسة باستخدام Framer Motion.",
+        "en": "Used Tailwind + Shadcn for clean UI. Multi-language & RTL support. Smooth transitions via Framer Motion.",
+        "fr": "Utilisation de Tailwind + Shadcn pour une interface propre. Support multilingue & RTL. Transitions fluides avec Framer Motion."
+      },
+      "challenges": {
+        "ar": "تصميم خوارزمية تكرار متباعد تعمل فعلاً مع مزامنة التقدم عبر Supabase.",
+        "en": "Designing a working spaced repetition algorithm and syncing user progress securely via Supabase.",
+        "fr": "Concevoir un algorithme de répétition espacée fonctionnel et synchroniser les progrès via Supabase."
+      },
+      "solutions": {
+        "ar": "اعتمدت على Supabase وContext API لإدارة الجلسات، والمجموعات، ومتابعة الدراسة.",
+        "en": "Used Supabase row-level security and context API for handling decks, reviews, and session logic.",
+        "fr": "Utilisation de Supabase + context API pour gérer les decks, révisions et logique de session."
+      },
+      "lessons_learned": {
+        "ar": "تعلمت كيف أوازن بين تجربة المستخدم، الأداء، وتنظيم الكود في تطبيق تعليمي.",
+        "en": "How to balance UX, performance, and clean architecture in a learning app.",
+        "fr": "Comment équilibrer UX, performance et architecture dans une app d'apprentissage."
+      },
+      "future_improvements": {
+        "ar": "توليد بطاقات بالذكاء الاصطناعي، مجموعات مشتركة، فلاتر بحث أفضل.",
+        "en": "AI-generated cards from user input or PDFs. Shared decks. Better search filters.",
+        "fr": "Cartes générées par IA, decks partagés, filtres de recherche améliorés."
+      }
+    }
+  },
+  {
+    "id": "80103445-aa46-4399-8256-560df53733bf",
+    "tech_stack": [
+      "Spring Boot",
+      "Vaadin",
+      "MongoDB",
+      "ITextPDF",
+      "Java",
+      "REST API"
+    ],
+    "github_url": null,
+    "live_url": null,
+    "thumbnail_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236381496.png",
+    "stars": 18,
+    "featured": false,
+    "created_at": "2025-04-15T09:00:00+00:00",
+    "updated_at": "2025-08-03T13:00:00+00:00",
+    "name": {
+      "ar": "أرشيف أم ويب",
+      "en": "ArchiveUmWeb",
+      "fr": "ArchiveUmWeb"
+    },
+    "description": {
+      "ar": "تطبيق ويب داخلي لعرض وتحميل ملفات العمل (فِش دو بوسط) والمقابلات، باستخدام MongoDB وواجهة مبنية على Vaadin.",
+      "en": "An internal web platform to archive and consult job descriptions and professional interviews using MongoDB and Vaadin UI.",
+      "fr": "Plateforme web interne pour archiver et consulter les fiches de poste et entretiens professionnels via MongoDB et une interface Vaadin."
+    },
+    "details": {
+      "hero_image_url": "https://files.oaiusercontent.com/file-VZnshn1RE2NPPhK9Y6n9xf",
+      "before_after_images": [
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236394935-0.44349105185248916.jpg",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236394935-0.9180924176148715.jpg",
+        "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236394935-0.773561759169426.png"
+      ],
+      "key_features": [
+        {
+          "icon": "📁",
+          "title": {
+            "ar": "عرض الوثائق الشخصية",
+            "en": "Personal Document Access",
+            "fr": "Accès aux documents personnels"
+          },
+          "image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236402541.png",
+          "description": {
+            "ar": "يمكن للمستخدمين رؤية وتحميل ملفاتهم الخاصة لسنة محددة.",
+            "en": "Users can view and download their own documents for a selected year.",
+            "fr": "Les utilisateurs peuvent consulter et télécharger leurs documents pour une année donnée."
+          }
+        },
+        {
+          "icon": "🧑‍💼",
+          "title": {
+            "ar": "وصول المدراء لموظفيهم",
+            "en": "Manager Access to Agents",
+            "fr": "Accès des managers aux agents"
+          },
+          "image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236410833.jpg",
+          "description": {
+            "ar": "المديرون يمكنهم الوصول لملفات موظفيهم وتحميلها.",
+            "en": "Managers can access and manage files of their direct team.",
+            "fr": "Les responsables peuvent accéder aux documents de leurs agents."
+          }
+        },
+        {
+          "icon": "🏢",
+          "title": {
+            "ar": "إدارة الموارد البشرية",
+            "en": "HR Global Access",
+            "fr": "Accès RH global"
+          },
+          "image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754236416428.jpg",
+          "description": {
+            "ar": "مدراء الموارد البشرية يمكنهم تصفح وتحميل كل الملفات داخل الجامعة.",
+            "en": "HR staff can access all documents across the university.",
+            "fr": "Les gestionnaires RH ont un accès complet à tous les documents."
+          }
+        }
+      ],
+      "impact_stats": [
+        {
+          "value": "4000+",
+          "metric": {
+            "ar": "وثيقة مؤرشفة",
+            "en": "Archived Documents",
+            "fr": "Documents archivés"
+          },
+          "description": {
+            "ar": "أكثر من 4000 وثيقة تم رفعها بين 2015 و2023.",
+            "en": "Over 4000 documents archived between 2015–2023.",
+            "fr": "Plus de 4000 documents archivés entre 2015–2023."
+          }
+        }
+      ],
+      "video_demo_url": "",
+      "created_at": "2025-04-15T09:00:00+00:00",
+      "updated_at": "2025-08-03T15:53:41.054877+00:00",
+      "tagline": {
+        "ar": "بوابتك لملفات الموارد البشرية الخاصة بك في جامعة مونبلييه.",
+        "en": "Your HR document gateway at Université de Montpellier.",
+        "fr": "Votre passerelle RH à l’Université de Montpellier."
+      },
+      "problem_statement": {
+        "ar": "الموظفون والإداريون لا يملكون طريقة بسيطة للوصول إلى ملفات الموارد البشرية السابقة.",
+        "en": "Staff lacked a structured way to access HR records over the years.",
+        "fr": "Les agents n’avaient pas de moyen structuré d’accéder à leurs anciens fichiers RH."
+      },
+      "project_goal": {
+        "ar": "أتمتة أرشفة واسترجاع ملفات الفيش دي بوسط والمقابلات.",
+        "en": "Automate archiving and retrieval of job and interview files.",
+        "fr": "Automatiser l’archivage et l’accès aux documents RH."
+      },
+      "your_role": {
+        "ar": "المسؤول عن الواجهة والربط مع MongoDB وعمليات التحميل والمعالجة.",
+        "en": "Handled UI logic, MongoDB queries, file fetching and filtering.",
+        "fr": "Responsable de l’interface, intégration MongoDB et filtres."
+      },
+      "design_decisions": {
+        "ar": "اعتمدت على Lazy Loading وتقسيم الصفحات لحفظ الأداء مع عدد هائل من الملفات.",
+        "en": "Used lazy loading, paging, and optimized queries to handle large data sets.",
+        "fr": "Chargement différé, pagination et requêtes Mongo optimisées."
+      },
+      "challenges": {
+        "ar": "تخزين وتحميل ملفات PDF من قاعدة بيانات بصيغة Base64.",
+        "en": "Storing and rendering PDF files from Base64 in MongoDB.",
+        "fr": "Stockage et affichage des PDF encodés en Base64 depuis MongoDB."
+      },
+      "solutions": {
+        "ar": "استخدمت Vaadin لواجهة سريعة وربطت كل شيء بـ Spring Boot و Mongo.",
+        "en": "Integrated Vaadin with Spring Boot and used Mongo for fast access.",
+        "fr": "Vaadin intégré à Spring Boot avec Mongo pour des accès rapides."
+      },
+      "lessons_learned": {
+        "ar": "اتعلمت كيف أتعامل مع بيانات كبيرة ومعالجة PDFات بفعالية.",
+        "en": "Learned to handle large datasets and efficient PDF rendering.",
+        "fr": "Apprentissage de la gestion de gros volumes de données et de l'affichage de PDF."
+      },
+      "future_improvements": {
+        "ar": "إضافة واجهة تصدير كاملة وتحليلات استخدام.",
+        "en": "Add export tools and usage analytics dashboard.",
+        "fr": "Ajouter un module d’export et un tableau de bord analytique."
+      }
+    }
+  },
+  {
+  "id": "3cc701f5-03cf-4cb1-84a1-4a4f1f77bb61",
   "name": {
-    "ar": "بروكسيماب",
-    "en": "ProxiMap",
-    "fr": "ProxiMap"
+    "en": "PlanUM",
+    "fr": "PlanUM",
+    "ar": "بلان يو إم"
   },
   "description": {
-    "ar": "منصة تفاعلية تربط الناس بالخدمات المحلية كالتنظيف، الدعم التقني، أو الاستشارات.",
-    "en": "An interactive platform connecting people with local services like cleaning, tech support, or consultations.",
-    "fr": "Une plateforme interactive reliant les gens aux services locaux tels que le ménage, le support tech ou les consultations."
+    "en": "A weekly planning app built with Vaadin to help employees submit their availability and managers validate their schedules.",
+    "fr": "Une application de planification hebdomadaire créée avec Vaadin permettant aux employés de soumettre leurs disponibilités et aux responsables de les valider.",
+    "ar": "تطبيق تخطيط أسبوعي تم إنشاؤه باستخدام Vaadin لمساعدة الموظفين على تقديم ساعات تواجدهم والمديرين على الموافقة عليها أو رفضها."
   },
+  "tech_stack": [
+    "Java",
+    "Vaadin",
+    "Spring Boot",
+    "Maven"
+  ],
+  "github_url": null,
+  "live_url": null,
+  "thumbnail_url": "https://github.com/mineboxarabic/applications-images/blob/main/Planum/Screenshot%20from%202024-03-01%2010-21-02.png?raw=true",
+  "stars": 17,
+  "featured": false,
+  "created_at": "2024-02-01T10:00:00Z",
+  "updated_at": "2024-03-01T12:30:00Z",
   "details": {
-    "hero_image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap%20(online-video-cutter.com).gif?raw=true",
-    "before_after_images": [],
+    "hero_image_url": "https://github.com/mineboxarabic/applications-images/blob/main/Planum/Screenshot%20from%202024-03-01%2010-21-27.png?raw=true",
+    "tagline": {
+      "en": "Weekly schedule management for university employees.",
+      "fr": "Gestion hebdomadaire des plannings pour les employés universitaires.",
+      "ar": "إدارة الجدول الأسبوعي لموظفي الجامعة."
+    },
+    "problem_statement": {
+      "en": "Universities needed a simple way for staff to submit their weekly availability and for supervisors to validate schedules.",
+      "fr": "Les universités avaient besoin d’un moyen simple pour que le personnel soumette ses disponibilités hebdomadaires et pour que les superviseurs valident les plannings.",
+      "ar": "كانت الجامعات بحاجة إلى طريقة بسيطة لتمكين الموظفين من تقديم ساعات تواجدهم الأسبوعية، وللسماح للمشرفين بالموافقة أو الرفض."
+    },
+    "project_goal": {
+      "en": "To streamline weekly employee planning and enhance coordination between staff and supervisors.",
+      "fr": "Rationaliser la planification hebdomadaire des employés et améliorer la coordination entre le personnel et les superviseurs.",
+      "ar": "تبسيط عملية التخطيط الأسبوعي للموظفين وتعزيز التنسيق بين الموظفين والمشرفين."
+    },
+    "your_role": {
+      "en": "Worked as part of a 3-person team during my alternance at the University of Montpellier. Focused on business logic and user workflow.",
+      "fr": "Travaillé en équipe de 3 personnes pendant mon alternance à l’Université de Montpellier. Axé sur la logique métier et le flux utilisateur.",
+      "ar": "عملت ضمن فريق من 3 أشخاص خلال فترة تدريبي في جامعة مونبلييه، وركزت على منطق التطبيق وسير عمل المستخدم."
+    },
+    "design_decisions": {
+      "en": "We used Vaadin’s component-based design to keep UI clean and easy to maintain. The calendar view was customized for optimal weekly scheduling.",
+      "fr": "Nous avons utilisé la conception basée sur les composants de Vaadin pour maintenir une interface claire et facile à maintenir. La vue calendrier a été personnalisée pour une planification hebdomadaire optimale.",
+      "ar": "استخدمنا تصميم Vaadin القائم على المكونات للحفاظ على واجهة نظيفة وسهلة الصيانة، وتم تخصيص عرض التقويم لتخطيط أسبوعي مثالي."
+    },
+    "before_after_images": [
+      "https://github.com/mineboxarabic/applications-images/blob/main/Planum/Screenshot%20from%202024-03-01%2010-22-14.png?raw=true",
+      "https://github.com/mineboxarabic/applications-images/blob/main/Planum/Screenshot%20from%202024-03-01%2010-22-42.png?raw=true"
+    ],
     "key_features": [
       {
-        "icon": "👤",
         "title": {
-          "ar": "إدارة حسابات المستخدمين",
-          "en": "User Account Management",
-          "fr": "Gestion des comptes utilisateurs"
+          "en": "Weekly Employee Planning",
+          "fr": "Planification hebdomadaire des employés",
+          "ar": "تخطيط أسبوعي للموظفين"
         },
-        "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
         "description": {
-          "ar": "نظام تسجيل آمن، تخصيص الحساب، وإدارة من طرف الإدارة.",
-          "en": "Secure signup, profile customization, and admin-level user management.",
-          "fr": "Inscription sécurisée, personnalisation de profil et gestion par les admins."
-        }
+          "en": "Employees can submit their availability by day and hour.",
+          "fr": "Les employés peuvent soumettre leurs disponibilités par jour et par heure.",
+          "ar": "يمكن للموظفين تقديم أوقات تواجدهم حسب اليوم والساعة."
+        },
+        "icon": "🗓️",
+        "image_url": "https://github.com/mineboxarabic/applications-images/blob/main/Planum/Screenshot%20from%202024-03-01%2010-21-02.png?raw=true"
       },
       {
-        "icon": "💬",
         "title": {
-          "ar": "الدردشة والتواصل",
-          "en": "In-app Chat and Interaction",
-          "fr": "Chat intégré et interaction"
+          "en": "Supervisor Validation",
+          "fr": "Validation par le responsable",
+          "ar": "موافقة المسؤول"
         },
-        "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
         "description": {
-          "ar": "نظام مراسلة داخلي، مع تقارير وشكاوى.",
-          "en": "Built-in chat system with report and complaint management.",
-          "fr": "Système de messagerie avec gestion des signalements."
-        }
-      },
-      {
-        "icon": "🔍",
-        "title": {
-          "ar": "إدارة العروض والخدمات",
-          "en": "Service Posting & Filtering",
-          "fr": "Publication & filtrage des services"
+          "en": "Managers can approve or reject submitted schedules.",
+          "fr": "Les responsables peuvent approuver ou rejeter les horaires soumis.",
+          "ar": "يمكن للمسؤولين الموافقة على الجداول أو رفضها."
         },
-        "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/Filter.gif?raw=true",
-        "description": {
-          "ar": "فلترة حسب الموقع، النوع، الحالة والمزيد.",
-          "en": "Search & filter services by location, category, status, etc.",
-          "fr": "Recherche & filtrage par lieu, catégorie, statut, etc."
-        }
-      },
-      {
-        "icon": "⚙️",
-        "title": {
-          "ar": "إدارة التصنيفات والمحتوى",
-          "en": "Category & Content Management",
-          "fr": "Gestion des catégories et contenu"
-        },
-        "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/CRUD.gif?raw=true",
-        "description": {
-          "ar": "إنشاء وتعديل التصنيفات من قبل المشرفين.",
-          "en": "Admins can manage categories and customize platform content.",
-          "fr": "Les admins gèrent les catégories et personnalisent le contenu."
-        }
+        "icon": "✅",
+        "image_url": "https://github.com/mineboxarabic/applications-images/blob/main/Planum/Screenshot%20from%202024-03-01%2010-21-27.png?raw=true"
       }
     ],
+    "challenges": {
+      "en": "Integrating Vaadin’s calendar components with dynamic user input and validation logic.",
+      "fr": "Intégrer les composants de calendrier de Vaadin avec des entrées utilisateur dynamiques et une logique de validation.",
+      "ar": "دمج مكونات تقويم Vaadin مع مدخلات المستخدم الديناميكية ومنطق الموافقة."
+    },
+    "solutions": {
+      "en": "Created a role-based system for employees and managers, enabling separation of input and approval flows.",
+      "fr": "Création d’un système basé sur les rôles pour les employés et les responsables, permettant de séparer les flux de saisie et d’approbation.",
+      "ar": "أنشأنا نظاماً قائماً على الأدوار للموظفين والمديرين لفصل إدخال البيانات عن عملية الموافقة."
+    },
     "impact_stats": [
       {
-        "value": "200+",
         "metric": {
-          "ar": "خدمة مضافة",
-          "en": "Services Posted",
-          "fr": "Services publiés"
+          "en": "Schedules Submitted",
+          "fr": "Plannings soumis",
+          "ar": "جداول مُقدّمة"
         },
+        "value": "100+",
         "description": {
-          "ar": "منذ الإطلاق، تم نشر أكثر من 200 خدمة.",
-          "en": "Over 200 services posted since launch.",
-          "fr": "Plus de 200 services publiés depuis le lancement."
+          "en": "More than 100 schedules processed during internal testing.",
+          "fr": "Plus de 100 plannings traités lors des tests internes.",
+          "ar": "تمت معالجة أكثر من 100 جدول خلال مرحلة الاختبار الداخلي."
         }
       }
     ],
-    "video_demo_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap%20(online-video-cutter.com).gif?raw=true",
-    "created_at": "2025-06-01T12:00:00Z",
-    "updated_at": "2025-08-02T14:00:00Z",
-    "tagline": {
-      "ar": "الخريطة الذكية لطلب وعرض الخدمات في منطقتك.",
-      "en": "The smart map for offering and finding services near you.",
-      "fr": "La carte intelligente pour offrir et trouver des services près de chez vous."
-    },
-    "problem_statement": {
-      "ar": "لا توجد وسيلة سهلة وآمنة لعرض أو طلب خدمات محلية من الهاتف أو الكمبيوتر.",
-      "en": "There was no easy and secure way to request or offer local services digitally.",
-      "fr": "Il n'y avait pas de moyen simple et sécurisé pour publier ou chercher des services locaux en ligne."
-    },
-    "project_goal": {
-      "ar": "بناء تطبيق تفاعلي يسهل الوصول للخدمات وتبادلها.",
-      "en": "Build an app that simplifies discovering and exchanging services interactively.",
-      "fr": "Créer une app qui facilite la découverte et l’échange de services de manière interactive."
-    },
-    "your_role": {
-      "ar": "المطور الرئيسي من A إلى Z، من الواجهة الخلفية إلى الخريطة والـ Auth.",
-      "en": "Solo fullstack developer — built backend, frontend, map logic, and auth flows.",
-      "fr": "Développeur fullstack solo — backend, frontend, cartes, authentification."
-    },
-    "design_decisions": {
-      "ar": "اعتمدت خريطة تفاعلية بسيطة، نظام دردشة مدمج، وفلترة سهلة.",
-      "en": "Used interactive map, built-in chat, and simple UX filtering system.",
-      "fr": "Carte interactive, chat intégré, et système de filtrage simplifié."
-    },
-    "challenges": {
-      "ar": "ربط البيانات الحية مع الخريطة والتعامل مع صلاحيات مختلفة للمستخدمين.",
-      "en": "Live syncing data with map view and managing user roles.",
-      "fr": "Synchronisation temps réel avec la carte et gestion des rôles utilisateurs."
-    },
-    "solutions": {
-      "ar": "استخدام Leaflet + Mongo Queries + JWT لفصل كل نوع مستخدم.",
-      "en": "Used Leaflet, scoped Mongo queries, and JWT for user roles.",
-      "fr": "Leaflet + requêtes Mongo spécifiques + JWT pour les rôles."
-    },
     "lessons_learned": {
-      "ar": "فهم عميق لكيفية ربط الخريطة بالباك وتصميم نظام صلاحيات حقيقي.",
-      "en": "Gained deep experience in map integration and building real auth roles.",
-      "fr": "Expérience approfondie en cartographie et système d’authentification réel."
+      "en": "Gained strong hands-on experience with Vaadin and learned how to structure planning logic for real-world scenarios.",
+      "fr": "Acquis une solide expérience pratique avec Vaadin et appris à structurer la logique de planification pour des scénarios concrets.",
+      "ar": "اكتسبت خبرة عملية قوية في Vaadin وتعلمت كيفية تنظيم منطق التخطيط لسيناريوهات الحياة الواقعية."
     },
     "future_improvements": {
-      "ar": "إضافة تطبيق جوال، إشعارات لحظية، وتقييمات لكل خدمة.",
-      "en": "Mobile app, real-time notifications, and review/rating system.",
-      "fr": "App mobile, notifications temps réel, système d’avis."
-    }
-  }
-},
-{
-"id": "80103445-aa46-4699-8256-560df53733bf",
-  "tech_stack": [
-    "React",
-    "React-leaflet",
-    "React-router-dom",
-    "useState",
-    "useEffect",
-    "useRef",
-    "useContext"
-  ],
-  "github_url": "https://github.com/mineboxarabic/ArlesXAgenda",
-  "live_url": "",
-  "thumbnail_url": "https://i.ibb.co/FnxP455/1.png",
-  "stars": 34,
-  "featured": false,
-  "created_at": "2025-05-10T10:00:00Z",
-  "updated_at": "2025-08-02T14:30:00Z",
-  "name": {
-    "ar": "أرلس أكس أجندة",
-    "en": "ArlesXAgenda",
-    "fr": "ArlesXAgenda"
-  },
-  "description": {
-    "ar": "تطبيق ويب لعرض الفعاليات بمدينة أرلس مع إمكانية الفلترة والمشاهدة على الخريطة.",
-    "en": "A web app for viewing events in Arles with filtering and map support.",
-    "fr": "Une application web pour afficher les événements à Arles avec filtres et carte."
-  },
-  "details": {
-    "hero_image_url": "https://i.ibb.co/VtM2Wh1/6.png",
-    "before_after_images": [
-      "https://i.ibb.co/3cknQVf/3.png",
-      "https://i.ibb.co/3sCfxbK/66.png"
-    ],
-    "key_features": [
-      {
-        "icon": "📅",
-        "title": {
-          "ar": "فلترة الفعاليات",
-          "en": "Event Filtering",
-          "fr": "Filtrage des événements"
-        },
-        "image_url": "https://i.ibb.co/54sw6RL/4.png",
-        "description": {
-          "ar": "فلترة حسب التاريخ، النوع، أو الموقع.",
-          "en": "Filter by date, category, or location.",
-          "fr": "Filtrage par date, catégorie ou localisation."
-        }
-      },
-      {
-        "icon": "🗺️",
-        "title": {
-          "ar": "عرض على الخريطة",
-          "en": "Map View",
-          "fr": "Vue carte"
-        },
-        "image_url": "https://i.ibb.co/3sCfxbK/66.png",
-        "description": {
-          "ar": "عرض الفعاليات مباشرة على خريطة تفاعلية.",
-          "en": "Display events directly on an interactive map.",
-          "fr": "Affichage des événements sur une carte interactive."
-        }
-      },
-      {
-        "icon": "📆",
-        "title": {
-          "ar": "عرض شهري",
-          "en": "Month View",
-          "fr": "Vue mensuelle"
-        },
-        "image_url": "https://i.ibb.co/VtM2Wh1/6.png",
-        "description": {
-          "ar": "عرض الفعاليات حسب الأشهر وتفاصيلها.",
-          "en": "View events by month with detailed breakdown.",
-          "fr": "Voir les événements par mois avec détails."
-        }
-      }
-    ],
-    "impact_stats": [],
-    "video_demo_url": "",
-    "created_at": "2025-05-10T10:00:00Z",
-    "updated_at": "2025-08-02T14:30:00Z",
-    "tagline": {
-      "ar": "منصة عرض فعاليات أرلس بطريقة سهلة وتفاعلية.",
-      "en": "Showcasing Arles' events the smart and interactive way.",
-      "fr": "Affichage intelligent et interactif des événements d'Arles."
+      "en": "Add notifications, export schedules to PDF, and analytics dashboard for supervisors.",
+      "fr": "Ajouter des notifications, exportation en PDF et un tableau de bord analytique pour les responsables.",
+      "ar": "إضافة الإشعارات، تصدير الجداول بصيغة PDF، ولوحة تحكم تحليلية للمسؤولين."
     },
-    "problem_statement": {
-      "ar": "كان من الصعب على المستخدمين الوصول لفعاليات المدينة بطريقة موحدة وسهلة.",
-      "en": "Users lacked a centralized, user-friendly way to access city events.",
-      "fr": "Les utilisateurs manquaient d’un moyen centralisé pour consulter les événements de la ville."
-    },
-    "project_goal": {
-      "ar": "تسهيل الوصول إلى فعاليات المدينة ومساعدتهم في تنظيم حضورهم.",
-      "en": "Make it easy for users to find and plan events around Arles.",
-      "fr": "Faciliter la planification et la découverte d'événements à Arles."
-    },
-    "your_role": {
-      "ar": "طورت الواجهة بالكامل وربطت الفلاتر والخرائط والمعاينة الشهرية بالبيانات.",
-      "en": "Developed the frontend and implemented filtering, maps, and calendar logic.",
-      "fr": "Développement complet du frontend avec filtres, cartes et calendrier."
-    },
-    "design_decisions": {
-      "ar": "اخترت استخدام خريطة تفاعلية وفلترة سريعة لتجربة مستخدم مريحة.",
-      "en": "Interactive maps and fast filters were chosen for smoother UX.",
-      "fr": "Cartes interactives et filtres rapides pour une meilleure expérience."
-    },
-    "challenges": {
-      "ar": "ملف JSON كبير، صعوبة رسم الفعاليات على الخريطة، واختيار ستايل نظيف.",
-      "en": "Big JSON file, event mapping, and styling were the main challenges.",
-      "fr": "Gros fichier JSON, affichage des événements sur carte et choix de design."
-    },
-    "solutions": {
-      "ar": "استخدمت هاشماب لتنظيم البيانات وسياق لتبادلها داخل التطبيق.",
-      "en": "Used hashmap to organize data and context API for state sharing.",
-      "fr": "Utilisation de hashmap et context pour le partage de données."
-    },
-    "lessons_learned": {
-      "ar": "فهمت كيف أتعامل مع بيانات ضخمة وأربطها بخريطة وبواجهة مستخدم مرنة.",
-      "en": "Learned to handle large data and build responsive UI with map integration.",
-      "fr": "Apprentissage de la gestion de données volumineuses et d’une UI réactive."
-    },
-    "future_improvements": {
-      "ar": "إضافة خيارات مشاركة الحدث وتقييمات المستخدمين.",
-      "en": "Add social sharing and user rating features.",
-      "fr": "Ajouter le partage d'événements et des évaluations utilisateurs."
-    }
+    "video_demo_url": ""
   }
 }
-
 
 ]
