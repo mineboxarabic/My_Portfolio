@@ -1,0 +1,415 @@
+
+
+[
+  {
+    "id": "80103345-aa56-4699-8256-560df53733bf",
+    "tech_stack": [
+      "Java",
+      "JavaFX",
+      "FXML",
+      "CSS",
+      "IntelliJ IDEA",
+      "Eclipse"
+    ],
+    "github_url": null,
+    "live_url": null,
+    "thumbnail_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1753984497701-bloomfx-0.8765791947944768.png",
+    "stars": 43,
+    "featured": false,
+    "created_at": "2025-07-31T17:55:07.442566+00:00",
+    "updated_at": "2025-07-31T17:55:07.442566+00:00",
+    "name": {
+      "ar": "بلوم إف إكس",
+      "en": "BloomFX",
+      "fr": "BloomFX"
+    },
+    "description": {
+      "ar": "مدير مهام مبني على Java مصمم لمساعدة المستخدمين على تنظيم المهام بواجهة بصرية جذابة.",
+      "en": "A Java-based UI task manager designed to help users organize tasks with a visually appealing interface.",
+      "fr": "Un gestionnaire de tâches basé sur Java conçu pour aider les utilisateurs à organiser les tâches avec une interface visuellement attrayante."
+    },
+    "details": {
+      "hero_image_url": "https://nrqbqrextfpjoogovizh.supabase.co/storage/v1/object/public/project-images/public/1754118577274.png",
+      "before_after_images": [
+        "https://raw.githubusercontent.com/mineboxarabic/BloomFX/master/ScreenShots/Capture.PNG"
+      ],
+      "key_features": [
+        {
+          "icon": "🧑",
+          "title": {
+            "ar": "إدارة المهام القابلة للتخصيص",
+            "en": "Customizable Task views and dashbaords",
+            "fr": "Gestion personnalisable des tâches"
+          },
+          "image_url": "https://raw.githubusercontent.com/mineboxarabic/BloomFX/master/ScreenShots/3.PNG",
+          "description": {
+            "ar": "يمكن للمستخدمين ترتيب أولويات مهامهم وأهدافهم الشخصية بشكل فعال، مما يضمن تركيزهم على ما هو مهم حقًا.",
+            "en": "Users can prioritize their tasks and personal goals effectively, ensuring they focus on what truly matters.",
+            "fr": "Les utilisateurs peuvent prioriser efficacement leurs tâches et objectifs personnels, garantissant ainsi qu'ils se concentrent sur ce qui compte vraiment."
+          }
+        },
+        {
+          "icon": "🌒",
+          "title": {
+            "ar": "قم بإدارة مهامك اليومية والأسبوعية والشهرية بسهولة مع ميزتنا القوية!",
+            "en": "Manage daily, weekly, and monthly tasks effortlessly with our powerful overview feature!",
+            "fr": "Gérez vos tâches quotidiennes, hebdomadaires et mensuelles facilement avec notre fonctionnalité puissante !"
+          },
+          "image_url": "https://raw.githubusercontent.com/mineboxarabic/BloomFX/master/ScreenShots/4.PNG",
+          "description": {
+            "ar": "قم بإدارة مهامك اليومية والأسبوعية والشهرية بسهولة مع ميزة النظرة العامة القوية لدينا!",
+            "en": "Effortlessly manage your daily, weekly, and monthly tasks with our powerful overview feature!",
+            "fr": "Gérez facilement vos tâches quotidiennes, hebdomadaires et mensuelles grâce à notre fonctionnalité de synthèse puissante !"
+          }
+        },
+        {
+          "icon": "👍",
+          "title": {
+            "ar": "نافذة لرؤية المهام المكتملة",
+            "en": "A Glimpse into Completed Tasks",
+            "fr": "Un aperçu des tâches complétées"
+          },
+          "image_url": "https://raw.githubusercontent.com/mineboxarabic/BloomFX/master/ScreenShots/6.PNG",
+          "description": {
+            "ar": "تقدم المهام المكتملة لمحة عن الإنجازات، مما يعكس التقدم ويعزز الدافع.",
+            "en": "Completed Tasks provide a snapshot of achievements, showcasing progress and boosting motivation.",
+            "fr": "Les tâches complètes offrent un aperçu des réalisations, mettant en valeur les progrès et la motivation."
+          }
+        }
+      ],
+      "impact_stats": [],
+      "video_demo_url": "",
+      "created_at": "2025-07-31T17:55:07.543215+00:00",
+      "updated_at": "2025-08-02T11:28:51.267727+00:00",
+      "tagline": {
+        "ar": "نظم مهامك بشكل رائع على حاسوبك الشخصي",
+        "en": "Organize Your Tasks Beautifully localy on your computer",
+        "fr": "Organisez vos tâches de manière élégante, localement sur votre pc"
+      },
+      "problem_statement": {
+        "ar": "الحاجة إلى أداة إدارة مهام جذابة بصريًا وبديهية تتيح للمستخدمين تنظيم مهامهم بشكل سهل و هذه كانت اول مهمة ابستخدام جافا.",
+        "en": "The need for a visually appealing and intuitive task management tool that allows users to organize, prioritize, and manage their tasks effectively.",
+        "fr": "La nécessité d'un outil de gestion des tâches visuellement attrayant et intuitif qui permet aux utilisateurs d'organiser, de prioriser et de gérer efficacement leurs tâches."
+      },
+      "project_goal": {
+        "ar": "تعلم كيفية استخدام جافا و الستناكس و كيفية التعامل مع الفريموركس الخاصة بجافا",
+        "en": "To develop a user-friendly task manager that enhances productivity through effective task visualization and management.",
+        "fr": "Apprendre à utiliser Java, sa syntaxe et comment travailler avec les frameworks Java."
+      },
+      "your_role": {
+        "ar": "كمدير للمشروع والمطور الرئيسي، كنت مسؤولاً عن الإشراف على تطوير المشروع، من التصميم الأولي إلى التنفيذ النهائي، مع التأكد من أن البرنامج يلبي جميع المتطلبات الوظيفية مع الحفاظ على معايير قابلية الاستخدام العالية.",
+        "en": "I was main and only developper for this application",
+        "fr": "En tant que chef de projet et développeur principal, j'étais responsable de la supervision du développement du projet, depuis la conception initiale jusqu'à la mise en œuvre finale, en veillant à ce que le logiciel réponde à toutes les exigences fonctionnelles tout en maintenant des normes élevées d'utilisabilité."
+      },
+      "design_decisions": {
+        "ar": "شملت خيارات التصميم وتجربة المستخدم الرئيسية ما يلي: \n\n- **واجهة المستخدم**: الاستفادة من JavaFX و FXML لإنشاء واجهة مستخدم سلسة واستجابة، تكون بديهية لجميع مستويات المستخدمين.\n- **التخصيص**: تنفيذ أولويات المهام القابلة للتخصيص لتلبية تفضيلات واحتياجات المستخدمين المختلفة.\n- **التصور**: تطوير عدة طرق عرض (عرض القائمة، عرض اليوم) لتقديم وجهات نظر مختلفة حول المهام، مما يعزز تجربة المستخدم من خلال تلبية تفضيلات سير العمل الفردية.",
+        "en": "Key design and UX choices included: \n\n- **User Interface**: Utilizing JavaFX and FXML to create a seamless and responsive user interface that is intuitive for users of all levels.\n- **Customization**: Implementation of customizable task priorities to meet diverse user preferences and requirements.\n- **Visualization**: Development of multiple views (List View, Day View) to provide different perspectives on tasks, thereby enhancing the user experience by accommodating individual workflow preferences.",
+        "fr": "Les choix clés en matière de design et d'expérience utilisateur comprenaient : \n\n- **Interface Utilisateur** : Utilisation de JavaFX et FXML pour créer une interface utilisateur fluide et réactive, intuitive pour tous les niveaux d'utilisateurs.\n- **Personnalisation** : Mise en œuvre de priorités de tâches personnalisables pour répondre aux diverses préférences et besoins des utilisateurs.\n- **Visualisation** : Développement de multiples vues (Vue Liste, Vue Journalière) pour offrir différentes perspectives sur les tâches, améliorant ainsi l'expérience utilisateur en s'adaptant aux préférences de flux de travail individuelles."
+      },
+      "challenges": {
+        "ar": "التحدي الرئيسي في هذا التطبيق كان تعلم جافا و جافا إف إكس. تطلب ذلك فهمًا عميقًا لمبادئ البرمجة الشيئية وفهم الفروق الدقيقة في بناء واجهات المستخدم الغنية. على الرغم من الصعوبة في البداية، كانت التجربة مجزية بشكل كبير وطورت مهاراتي في البرمجة.",
+        "en": "The main challenge with this application was learning JAVA and JAVAFX. It required a deep understanding of object-oriented programming principles and the nuances of building rich user interfaces. Despite the steep learning curve, the experience was rewarding and significantly enhanced my coding skills.",
+        "fr": "Le principal défi de cette application était de maîtriser JAVA et JAVAFX. Cela nécessitait une compréhension approfondie des principes de la programmation orientée objet et des subtilités de la création d'interfaces utilisateur riches. Malgré la courbe d'apprentissage abrupte, cette expérience a été enrichissante et a considérablement amélioré mes compétences en programmation."
+      },
+      "solutions": {
+        "ar": "بدأت رحلتي في التعلم من خلال استخدام مقاطع الفيديو على يوتيوب، معتمداً على مزيج من التجربة والخطأ.",
+        "en": "I began my learning journey by utilizing YouTube videos, embracing a combination of trial and error.",
+        "fr": "J'ai commencé mon parcours d'apprentissage en utilisant des vidéos YouTube, en adoptant une approche mêlant essais et erreurs."
+      },
+      "lessons_learned": {
+        "ar": "من خلال هذا المشروع، تعلمت كيفية استخدام جافا وJavaFX مع FXML، بالإضافة إلى كيفية تنظيم المشروع بشكل فعال. لقد عززت هذه التجربة مهاراتي في البرمجة وعلمتني أهمية التطوير المنظم.",
+        "en": "Through this project, I learned how to use Java and JavaFX with FXML, as well as how to effectively organize a project. This experience has enhanced my programming skills and taught me the importance of structured development.",
+        "fr": "Grâce à ce projet, j'ai appris à utiliser Java et JavaFX avec FXML, ainsi qu'à organiser efficacement un projet. Cette expérience a amélioré mes compétences en programmation et m'a enseigné l'importance d'un développement structuré."
+      },
+      "future_improvements": {
+        "ar": "",
+        "en": "",
+        "fr": ""
+      }
+    }
+  },
+{
+"id": "80103445-aa56-4699-8256-560df53733bf",
+  "tech_stack": [
+    "React",
+    "Node.js",
+    "Express.js",
+    "MongoDB",
+    "JWT",
+    "OAuth"
+  ],
+  "github_url": "https://github.com/mineboxarabic/ProxiMap",
+  "live_url": "",
+  "thumbnail_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
+  "stars": 102,
+  "featured": true,
+  "created_at": "2025-06-01T12:00:00Z",
+  "updated_at": "2025-08-02T14:00:00Z",
+  "name": {
+    "ar": "بروكسيماب",
+    "en": "ProxiMap",
+    "fr": "ProxiMap"
+  },
+  "description": {
+    "ar": "منصة تفاعلية تربط الناس بالخدمات المحلية كالتنظيف، الدعم التقني، أو الاستشارات.",
+    "en": "An interactive platform connecting people with local services like cleaning, tech support, or consultations.",
+    "fr": "Une plateforme interactive reliant les gens aux services locaux tels que le ménage, le support tech ou les consultations."
+  },
+  "details": {
+    "hero_image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap%20(online-video-cutter.com).gif?raw=true",
+    "before_after_images": [],
+    "key_features": [
+      {
+        "icon": "👤",
+        "title": {
+          "ar": "إدارة حسابات المستخدمين",
+          "en": "User Account Management",
+          "fr": "Gestion des comptes utilisateurs"
+        },
+        "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
+        "description": {
+          "ar": "نظام تسجيل آمن، تخصيص الحساب، وإدارة من طرف الإدارة.",
+          "en": "Secure signup, profile customization, and admin-level user management.",
+          "fr": "Inscription sécurisée, personnalisation de profil et gestion par les admins."
+        }
+      },
+      {
+        "icon": "💬",
+        "title": {
+          "ar": "الدردشة والتواصل",
+          "en": "In-app Chat and Interaction",
+          "fr": "Chat intégré et interaction"
+        },
+        "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap.gif?raw=true",
+        "description": {
+          "ar": "نظام مراسلة داخلي، مع تقارير وشكاوى.",
+          "en": "Built-in chat system with report and complaint management.",
+          "fr": "Système de messagerie avec gestion des signalements."
+        }
+      },
+      {
+        "icon": "🔍",
+        "title": {
+          "ar": "إدارة العروض والخدمات",
+          "en": "Service Posting & Filtering",
+          "fr": "Publication & filtrage des services"
+        },
+        "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/Filter.gif?raw=true",
+        "description": {
+          "ar": "فلترة حسب الموقع، النوع، الحالة والمزيد.",
+          "en": "Search & filter services by location, category, status, etc.",
+          "fr": "Recherche & filtrage par lieu, catégorie, statut, etc."
+        }
+      },
+      {
+        "icon": "⚙️",
+        "title": {
+          "ar": "إدارة التصنيفات والمحتوى",
+          "en": "Category & Content Management",
+          "fr": "Gestion des catégories et contenu"
+        },
+        "image_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/CRUD.gif?raw=true",
+        "description": {
+          "ar": "إنشاء وتعديل التصنيفات من قبل المشرفين.",
+          "en": "Admins can manage categories and customize platform content.",
+          "fr": "Les admins gèrent les catégories et personnalisent le contenu."
+        }
+      }
+    ],
+    "impact_stats": [
+      {
+        "value": "200+",
+        "metric": {
+          "ar": "خدمة مضافة",
+          "en": "Services Posted",
+          "fr": "Services publiés"
+        },
+        "description": {
+          "ar": "منذ الإطلاق، تم نشر أكثر من 200 خدمة.",
+          "en": "Over 200 services posted since launch.",
+          "fr": "Plus de 200 services publiés depuis le lancement."
+        }
+      }
+    ],
+    "video_demo_url": "https://github.com/mineboxarabic/ProxiMap/blob/main/SreenShots/ProxiMap%20(online-video-cutter.com).gif?raw=true",
+    "created_at": "2025-06-01T12:00:00Z",
+    "updated_at": "2025-08-02T14:00:00Z",
+    "tagline": {
+      "ar": "الخريطة الذكية لطلب وعرض الخدمات في منطقتك.",
+      "en": "The smart map for offering and finding services near you.",
+      "fr": "La carte intelligente pour offrir et trouver des services près de chez vous."
+    },
+    "problem_statement": {
+      "ar": "لا توجد وسيلة سهلة وآمنة لعرض أو طلب خدمات محلية من الهاتف أو الكمبيوتر.",
+      "en": "There was no easy and secure way to request or offer local services digitally.",
+      "fr": "Il n'y avait pas de moyen simple et sécurisé pour publier ou chercher des services locaux en ligne."
+    },
+    "project_goal": {
+      "ar": "بناء تطبيق تفاعلي يسهل الوصول للخدمات وتبادلها.",
+      "en": "Build an app that simplifies discovering and exchanging services interactively.",
+      "fr": "Créer une app qui facilite la découverte et l’échange de services de manière interactive."
+    },
+    "your_role": {
+      "ar": "المطور الرئيسي من A إلى Z، من الواجهة الخلفية إلى الخريطة والـ Auth.",
+      "en": "Solo fullstack developer — built backend, frontend, map logic, and auth flows.",
+      "fr": "Développeur fullstack solo — backend, frontend, cartes, authentification."
+    },
+    "design_decisions": {
+      "ar": "اعتمدت خريطة تفاعلية بسيطة، نظام دردشة مدمج، وفلترة سهلة.",
+      "en": "Used interactive map, built-in chat, and simple UX filtering system.",
+      "fr": "Carte interactive, chat intégré, et système de filtrage simplifié."
+    },
+    "challenges": {
+      "ar": "ربط البيانات الحية مع الخريطة والتعامل مع صلاحيات مختلفة للمستخدمين.",
+      "en": "Live syncing data with map view and managing user roles.",
+      "fr": "Synchronisation temps réel avec la carte et gestion des rôles utilisateurs."
+    },
+    "solutions": {
+      "ar": "استخدام Leaflet + Mongo Queries + JWT لفصل كل نوع مستخدم.",
+      "en": "Used Leaflet, scoped Mongo queries, and JWT for user roles.",
+      "fr": "Leaflet + requêtes Mongo spécifiques + JWT pour les rôles."
+    },
+    "lessons_learned": {
+      "ar": "فهم عميق لكيفية ربط الخريطة بالباك وتصميم نظام صلاحيات حقيقي.",
+      "en": "Gained deep experience in map integration and building real auth roles.",
+      "fr": "Expérience approfondie en cartographie et système d’authentification réel."
+    },
+    "future_improvements": {
+      "ar": "إضافة تطبيق جوال، إشعارات لحظية، وتقييمات لكل خدمة.",
+      "en": "Mobile app, real-time notifications, and review/rating system.",
+      "fr": "App mobile, notifications temps réel, système d’avis."
+    }
+  }
+},
+{
+"id": "80103445-aa46-4699-8256-560df53733bf",
+  "tech_stack": [
+    "React",
+    "React-leaflet",
+    "React-router-dom",
+    "useState",
+    "useEffect",
+    "useRef",
+    "useContext"
+  ],
+  "github_url": "https://github.com/mineboxarabic/ArlesXAgenda",
+  "live_url": "",
+  "thumbnail_url": "https://i.ibb.co/FnxP455/1.png",
+  "stars": 34,
+  "featured": false,
+  "created_at": "2025-05-10T10:00:00Z",
+  "updated_at": "2025-08-02T14:30:00Z",
+  "name": {
+    "ar": "أرلس أكس أجندة",
+    "en": "ArlesXAgenda",
+    "fr": "ArlesXAgenda"
+  },
+  "description": {
+    "ar": "تطبيق ويب لعرض الفعاليات بمدينة أرلس مع إمكانية الفلترة والمشاهدة على الخريطة.",
+    "en": "A web app for viewing events in Arles with filtering and map support.",
+    "fr": "Une application web pour afficher les événements à Arles avec filtres et carte."
+  },
+  "details": {
+    "hero_image_url": "https://i.ibb.co/VtM2Wh1/6.png",
+    "before_after_images": [
+      "https://i.ibb.co/3cknQVf/3.png",
+      "https://i.ibb.co/3sCfxbK/66.png"
+    ],
+    "key_features": [
+      {
+        "icon": "📅",
+        "title": {
+          "ar": "فلترة الفعاليات",
+          "en": "Event Filtering",
+          "fr": "Filtrage des événements"
+        },
+        "image_url": "https://i.ibb.co/54sw6RL/4.png",
+        "description": {
+          "ar": "فلترة حسب التاريخ، النوع، أو الموقع.",
+          "en": "Filter by date, category, or location.",
+          "fr": "Filtrage par date, catégorie ou localisation."
+        }
+      },
+      {
+        "icon": "🗺️",
+        "title": {
+          "ar": "عرض على الخريطة",
+          "en": "Map View",
+          "fr": "Vue carte"
+        },
+        "image_url": "https://i.ibb.co/3sCfxbK/66.png",
+        "description": {
+          "ar": "عرض الفعاليات مباشرة على خريطة تفاعلية.",
+          "en": "Display events directly on an interactive map.",
+          "fr": "Affichage des événements sur une carte interactive."
+        }
+      },
+      {
+        "icon": "📆",
+        "title": {
+          "ar": "عرض شهري",
+          "en": "Month View",
+          "fr": "Vue mensuelle"
+        },
+        "image_url": "https://i.ibb.co/VtM2Wh1/6.png",
+        "description": {
+          "ar": "عرض الفعاليات حسب الأشهر وتفاصيلها.",
+          "en": "View events by month with detailed breakdown.",
+          "fr": "Voir les événements par mois avec détails."
+        }
+      }
+    ],
+    "impact_stats": [],
+    "video_demo_url": "",
+    "created_at": "2025-05-10T10:00:00Z",
+    "updated_at": "2025-08-02T14:30:00Z",
+    "tagline": {
+      "ar": "منصة عرض فعاليات أرلس بطريقة سهلة وتفاعلية.",
+      "en": "Showcasing Arles' events the smart and interactive way.",
+      "fr": "Affichage intelligent et interactif des événements d'Arles."
+    },
+    "problem_statement": {
+      "ar": "كان من الصعب على المستخدمين الوصول لفعاليات المدينة بطريقة موحدة وسهلة.",
+      "en": "Users lacked a centralized, user-friendly way to access city events.",
+      "fr": "Les utilisateurs manquaient d’un moyen centralisé pour consulter les événements de la ville."
+    },
+    "project_goal": {
+      "ar": "تسهيل الوصول إلى فعاليات المدينة ومساعدتهم في تنظيم حضورهم.",
+      "en": "Make it easy for users to find and plan events around Arles.",
+      "fr": "Faciliter la planification et la découverte d'événements à Arles."
+    },
+    "your_role": {
+      "ar": "طورت الواجهة بالكامل وربطت الفلاتر والخرائط والمعاينة الشهرية بالبيانات.",
+      "en": "Developed the frontend and implemented filtering, maps, and calendar logic.",
+      "fr": "Développement complet du frontend avec filtres, cartes et calendrier."
+    },
+    "design_decisions": {
+      "ar": "اخترت استخدام خريطة تفاعلية وفلترة سريعة لتجربة مستخدم مريحة.",
+      "en": "Interactive maps and fast filters were chosen for smoother UX.",
+      "fr": "Cartes interactives et filtres rapides pour une meilleure expérience."
+    },
+    "challenges": {
+      "ar": "ملف JSON كبير، صعوبة رسم الفعاليات على الخريطة، واختيار ستايل نظيف.",
+      "en": "Big JSON file, event mapping, and styling were the main challenges.",
+      "fr": "Gros fichier JSON, affichage des événements sur carte et choix de design."
+    },
+    "solutions": {
+      "ar": "استخدمت هاشماب لتنظيم البيانات وسياق لتبادلها داخل التطبيق.",
+      "en": "Used hashmap to organize data and context API for state sharing.",
+      "fr": "Utilisation de hashmap et context pour le partage de données."
+    },
+    "lessons_learned": {
+      "ar": "فهمت كيف أتعامل مع بيانات ضخمة وأربطها بخريطة وبواجهة مستخدم مرنة.",
+      "en": "Learned to handle large data and build responsive UI with map integration.",
+      "fr": "Apprentissage de la gestion de données volumineuses et d’une UI réactive."
+    },
+    "future_improvements": {
+      "ar": "إضافة خيارات مشاركة الحدث وتقييمات المستخدمين.",
+      "en": "Add social sharing and user rating features.",
+      "fr": "Ajouter le partage d'événements et des évaluations utilisateurs."
+    }
+  }
+}
+
+
+]

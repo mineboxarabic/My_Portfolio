@@ -4,8 +4,8 @@ import { useTranslation } from "react-i18next";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Collapsible, CollapsibleContent, CollapsibleTrigger } from "@/components/ui/collapsible";
-import { ArrowLeft, Github, ExternalLink, Play, Star, ChevronDown, Target, User, Lightbulb, Zap, TrendingUp, BookOpen } from "lucide-react";
+import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
+import { ArrowLeft, Github, ExternalLink, Play, Star, Target, User, Lightbulb, Zap, TrendingUp, BookOpen, ZoomIn, X } from "lucide-react";
 import { supabase } from "@/integrations/supabase/client";
 import Navigation from "@/components/Navigation";
 import DarkModeToggle from "@/components/DarkModeToggle";
@@ -56,6 +56,49 @@ interface Details {
 }
 
 type FullProject = Project & Details;
+
+// Zoomable Image Component
+const ZoomableImage = ({ src, alt, className = "" }: { src: string; alt: string; className?: string }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <>
+      <div 
+        className={`relative group cursor-zoom-in overflow-hidden rounded-lg ${className}`}
+        onClick={() => setIsOpen(true)}
+      >
+        <img
+          src={src}
+          alt={alt}
+          className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+        />
+        <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300 flex items-center justify-center">
+          <ZoomIn className="w-8 h-8 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+        </div>
+      </div>
+      
+      <Dialog open={isOpen} onOpenChange={setIsOpen}>
+        <DialogContent className="max-w-[95vw] max-h-[95vh] p-0 border-0 bg-transparent">
+          <div className="relative">
+            <Button
+              variant="ghost"
+              size="icon"
+              className="absolute top-4 right-4 z-10 bg-black/50 hover:bg-black/70 text-white rounded-full"
+              onClick={() => setIsOpen(false)}
+            >
+              <X className="w-6 h-6" />
+            </Button>
+            <img
+              src={src}
+              alt={alt}
+              className="w-full h-full object-contain rounded-lg"
+            />
+          </div>
+        </DialogContent>
+      </Dialog>
+    </>
+  );
+};
 
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
@@ -232,7 +275,7 @@ const ProjectDetail = () => {
               {project.hero_image_url && (
                 <div className="relative group">
                   <div className="absolute -inset-6 bg-gradient-to-r from-blue-500/20 to-indigo-500/20 rounded-2xl blur-2xl group-hover:blur-3xl transition-all duration-300"></div>
-                  <img
+                  <ZoomableImage
                     src={project.hero_image_url}
                     alt={getTranslatedText(project.name, i18n.language)}
                     className="relative w-full rounded-2xl shadow-2xl border border-white/20 dark:border-gray-700/50"
@@ -323,7 +366,7 @@ const ProjectDetail = () => {
                       {getTranslatedText(feature.description, i18n.language)}
                     </p>
                     {feature.image_url && (
-                      <img
+                      <ZoomableImage
                         src={feature.image_url}
                         alt={getTranslatedText(feature.title, i18n.language)}
                         className="w-full rounded-lg shadow-md"
@@ -364,141 +407,131 @@ const ProjectDetail = () => {
         </section>
       )}
 
-      <section className="py-16 px-4 bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm">
-        <div className="max-w-4xl mx-auto space-y-6">
-          <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-12">
+      {/* Modern Project Details Section */}
+      <section className="py-16 px-4 bg-gradient-to-b from-white/50 to-slate-50/80 dark:from-gray-800/50 dark:to-gray-900/80 backdrop-blur-sm">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-center text-gray-900 dark:text-white mb-16">
             {t('projectDetail.projectDetails')}
           </h2>
 
+          {/* Priority 1: Design Decisions - Most Important */}
           {project.design_decisions && (
-            <Collapsible>
-              <CollapsibleTrigger asChild>
-                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0">
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between text-purple-600 dark:text-purple-400">
-                      <div className="flex items-center gap-3">
-                        <Lightbulb className="w-6 h-6" />
-                        {t('projectDetail.designAndUx')}
-                      </div>
-                      <ChevronDown className="w-5 h-5" />
-                    </CardTitle>
-                  </CardHeader>
-                </Card>
-              </CollapsibleTrigger>
-              <CollapsibleContent>
-                <Card className="mt-2 bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-0">
-                  <CardContent className="p-6">
+            <div className="mb-16">
+              <Card className="bg-gradient-to-br from-purple-50 to-indigo-50 dark:from-purple-900/20 dark:to-indigo-900/20 border-0 shadow-xl overflow-hidden">
+                <CardHeader className="bg-gradient-to-r from-purple-600 to-indigo-600 text-white">
+                  <CardTitle className="flex items-center gap-3 text-2xl">
+                    <Lightbulb className="w-8 h-8" />
+                    {t('projectDetail.designAndUx')}
+                  </CardTitle>
+                </CardHeader>
+                <CardContent className="p-8">
+                  <div className="prose prose-lg dark:prose-invert max-w-none">
                     <MarkdownRenderer>
                       {getTranslatedText(project.design_decisions, i18n.language)}
                     </MarkdownRenderer>
-                    {project.before_after_images && project.before_after_images.length > 0 && (
-                      <div className="grid md:grid-cols-2 gap-6 mt-6">
+                  </div>
+                  {project.before_after_images && project.before_after_images.length > 0 && (
+                    <div className="mt-8">
+                      <h4 className="text-xl font-semibold mb-6 text-gray-800 dark:text-gray-200">Design Evolution</h4>
+                      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                         {project.before_after_images.map((imageUrl, index) => (
-                          <img
+                          <ZoomableImage
                             key={index}
                             src={imageUrl}
-                            alt={`Design ${index + 1}`}
-                            className="w-full rounded-lg shadow-lg"
+                            alt={`Design Evolution ${index + 1}`}
+                            className="w-full aspect-video rounded-lg shadow-lg"
                           />
                         ))}
                       </div>
-                    )}
-                  </CardContent>
-                </Card>
-              </CollapsibleContent>
-            </Collapsible>
+                    </div>
+                  )}
+                </CardContent>
+              </Card>
+            </div>
           )}
 
+          {/* Priority 2: Challenges & Solutions - Side by Side */}
           {(project.challenges || project.solutions) && (
-            <Collapsible>
-              <CollapsibleTrigger asChild>
-                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0">
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between text-orange-600 dark:text-orange-400">
-                      <div className="flex items-center gap-3">
-                        <TrendingUp className="w-6 h-6" />
-                        {t('projectDetail.challengesAndSolutions')}
-                      </div>
-                      <ChevronDown className="w-5 h-5" />
-                    </CardTitle>
-                  </CardHeader>
-                </Card>
-              </CollapsibleTrigger>
-              <CollapsibleContent>
-                <div className="mt-2 space-y-4">
-                  {project.challenges && (
-                    <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-0">
-                      <CardHeader>
-                        <CardTitle className="text-red-600 dark:text-red-400 text-lg">{t('projectDetail.challengesFaced')}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
+            <div className="mb-16">
+              <div className="grid lg:grid-cols-2 gap-8">
+                {project.challenges && (
+                  <Card className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-900/20 dark:to-orange-900/20 border-0 shadow-xl">
+                    <CardHeader className="bg-gradient-to-r from-red-500 to-orange-500 text-white">
+                      <CardTitle className="flex items-center gap-3 text-xl">
+                        <Target className="w-7 h-7" />
+                        {t('projectDetail.challengesFaced')}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <div className="prose dark:prose-invert">
                         <MarkdownRenderer>
                           {getTranslatedText(project.challenges, i18n.language)}
                         </MarkdownRenderer>
-                      </CardContent>
-                    </Card>
-                  )}
-                  {project.solutions && (
-                    <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-0">
-                      <CardHeader>
-                        <CardTitle className="text-green-600 dark:text-green-400 text-lg">{t('projectDetail.solutionsImplemented')}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+                {project.solutions && (
+                  <Card className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-green-900/20 dark:to-emerald-900/20 border-0 shadow-xl">
+                    <CardHeader className="bg-gradient-to-r from-green-500 to-emerald-500 text-white">
+                      <CardTitle className="flex items-center gap-3 text-xl">
+                        <Zap className="w-7 h-7" />
+                        {t('projectDetail.solutionsImplemented')}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <div className="prose dark:prose-invert">
                         <MarkdownRenderer>
                           {getTranslatedText(project.solutions, i18n.language)}
                         </MarkdownRenderer>
-                      </CardContent>
-                    </Card>
-                  )}
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            </div>
           )}
 
+          {/* Priority 3: Learning & Future - Side by Side */}
           {(project.lessons_learned || project.future_improvements) && (
-            <Collapsible>
-              <CollapsibleTrigger asChild>
-                <Card className="cursor-pointer hover:shadow-lg transition-all duration-300 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border-0">
-                  <CardHeader>
-                    <CardTitle className="flex items-center justify-between text-indigo-600 dark:text-indigo-400">
-                      <div className="flex items-center gap-3">
-                        <BookOpen className="w-6 h-6" />
-                        {t('projectDetail.lessonsAndFuture')}
-                      </div>
-                      <ChevronDown className="w-5 h-5" />
-                    </CardTitle>
-                  </CardHeader>
-                </Card>
-              </CollapsibleTrigger>
-              <CollapsibleContent>
-                <div className="mt-2 space-y-4">
-                  {project.lessons_learned && (
-                    <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-0">
-                      <CardHeader>
-                        <CardTitle className="text-purple-600 dark:text-purple-400 text-lg">{t('projectDetail.lessonsLearned')}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
+            <div className="mb-16">
+              <div className="grid lg:grid-cols-2 gap-8">
+                {project.lessons_learned && (
+                  <Card className="bg-gradient-to-br from-blue-50 to-cyan-50 dark:from-blue-900/20 dark:to-cyan-900/20 border-0 shadow-xl">
+                    <CardHeader className="bg-gradient-to-r from-blue-500 to-cyan-500 text-white">
+                      <CardTitle className="flex items-center gap-3 text-xl">
+                        <BookOpen className="w-7 h-7" />
+                        {t('projectDetail.lessonsLearned')}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <div className="prose dark:prose-invert">
                         <MarkdownRenderer>
                           {getTranslatedText(project.lessons_learned, i18n.language)}
                         </MarkdownRenderer>
-                      </CardContent>
-                    </Card>
-                  )}
-                  {project.future_improvements && (
-                    <Card className="bg-white/60 dark:bg-gray-800/60 backdrop-blur-sm border-0">
-                      <CardHeader>
-                        <CardTitle className="text-blue-600 dark:text-blue-400 text-lg">{t('projectDetail.futureImprovements')}</CardTitle>
-                      </CardHeader>
-                      <CardContent>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+                {project.future_improvements && (
+                  <Card className="bg-gradient-to-br from-purple-50 to-pink-50 dark:from-purple-900/20 dark:to-pink-900/20 border-0 shadow-xl">
+                    <CardHeader className="bg-gradient-to-r from-purple-500 to-pink-500 text-white">
+                      <CardTitle className="flex items-center gap-3 text-xl">
+                        <TrendingUp className="w-7 h-7" />
+                        {t('projectDetail.futureImprovements')}
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent className="p-6">
+                      <div className="prose dark:prose-invert">
                         <MarkdownRenderer>
                           {getTranslatedText(project.future_improvements, i18n.language)}
                         </MarkdownRenderer>
-                      </CardContent>
-                    </Card>
-                  )}
-                </div>
-              </CollapsibleContent>
-            </Collapsible>
+                      </div>
+                    </CardContent>
+                  </Card>
+                )}
+              </div>
+            </div>
           )}
         </div>
       </section>
