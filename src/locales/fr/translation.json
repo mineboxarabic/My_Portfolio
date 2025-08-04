@@ -43,6 +43,7 @@
     "messageLabel": "Votre Message",
     "messagePlaceholder": "Salut Yassin, connectons-nous !",
     "sendMessage": "Envoyer le message",
+    "sending": "Envoi en cours...",
     "formSuccess": "Message envoyé avec succès !",
     "formError": "Veuillez remplir tous les champs."
   },

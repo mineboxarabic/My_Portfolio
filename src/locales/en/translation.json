@@ -43,6 +43,7 @@
     "messageLabel": "Your Message",
     "messagePlaceholder": "Hi Yassin, let's connect!",
     "sendMessage": "Send Message",
+    "sending": "Sending...",
     "formSuccess": "Message sent successfully!",
     "formError": "Please fill out all fields."
   },

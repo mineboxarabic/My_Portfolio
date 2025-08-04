@@ -43,6 +43,7 @@
     "messageLabel": "رسالتك",
     "messagePlaceholder": "مرحباً ياسين، لنتواصل!",
     "sendMessage": "إرسال الرسالة",
+    "sending": "جاري الإرسال...",
     "formSuccess": "تم إرسال الرسالة بنجاح!",
     "formError": "يرجى ملء جميع الحقول."
   },

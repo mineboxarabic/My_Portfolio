@@ -7,6 +7,8 @@ import { Github, Linkedin, Mail, Twitter } from "lucide-react";
 import { useState } from "react";
 import { showSuccess, showError } from "@/utils/toast";
 import { useTranslation } from "react-i18next";
+import emailjs from '@emailjs/browser';
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { t, i18n } = useTranslation();
@@ -16,8 +18,9 @@ const Contact = () => {
     email: '',
     message: ''
   });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (!formData.name || !formData.email || !formData.message) {
@@ -25,8 +28,73 @@ const Contact = () => {
       return;
     }
 
-    showSuccess(t('contact.formSuccess'));
-    setFormData({ name: '', email: '', message: '' });
+    setIsLoading(true);
+
+    try {
+      // Method 1: Try EmailJS first (preferred method)
+      if (import.meta.env.VITE_EMAILJS_SERVICE_ID && 
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID && 
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY) {
+        
+        const result = await emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+          {
+            from_name: formData.name,
+            from_email: formData.email,
+            message: formData.message,
+            to_name: 'Portfolio Owner',
+            reply_to: formData.email,
+          },
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+        );
+
+        console.log('Email sent successfully via EmailJS:', result);
+        showSuccess(t('contact.formSuccess'));
+        setFormData({ name: '', email: '', message: '' });
+        return;
+      }
+
+      // Method 2: Fallback to mailto if EmailJS is not configured
+      console.log('EmailJS not configured, falling back to mailto');
+      
+      const subject = encodeURIComponent(`Portfolio Contact from ${formData.name}`);
+      const body = encodeURIComponent(
+        `Hi,\n\n` +
+        `Name: ${formData.name}\n` +
+        `Email: ${formData.email}\n\n` +
+        `Message:\n${formData.message}\n\n` +
+        `---\n` +
+        `Sent from your portfolio contact form`
+      );
+      
+      const mailtoLink = `mailto:mineboxarabic@gmail.com?subject=${subject}&body=${body}`;
+      window.open(mailtoLink, '_blank');
+      
+      showSuccess('Email client opened with your message!');
+      setFormData({ name: '', email: '', message: '' });
+
+    } catch (error) {
+      console.error('Email opening failed:', error);
+      
+      // Fallback: Copy message to clipboard
+      const messageText = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+      
+      if (navigator.clipboard) {
+        try {
+          await navigator.clipboard.writeText(messageText);
+          showSuccess('Message copied to clipboard! Please email it to mineboxarabic@gmail.com');
+        } catch (clipboardError) {
+          showError('Please email your message manually to: mineboxarabic@gmail.com');
+        }
+      } else {
+        showError('Please email your message manually to: mineboxarabic@gmail.com');
+      }
+      
+      setFormData({ name: '', email: '', message: '' });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,10 +105,10 @@ const Contact = () => {
   };
 
   const socialLinks = [
-    { icon: Github, label: "GitHub", url: "https://github.com/yassinyounes" },
-    { icon: Linkedin, label: "LinkedIn", url: "https://linkedin.com/in/yassinyounes" },
-    { icon: Twitter, label: "Twitter", url: "https://twitter.com/yassinyounes" },
-    { icon: Mail, label: "Email", url: "mailto:yassin.younes@example.com" }
+    { icon: Github, label: "GitHub", url: "https://github.com/mineboxarabic" },
+    { icon: Linkedin, label: "LinkedIn", url: "https://linkedin.com/in/mineboxarabic" },
+    { icon: Twitter, label: "Twitter", url: "https://twitter.com/mineboxarabic" },
+    { icon: Mail, label: "Email", url: "mailto:mineboxarabic@gmail.com" }
   ];
 
   return (
@@ -126,8 +194,9 @@ const Contact = () => {
                 <Button 
                   type="submit" 
                   className="w-full group hover:scale-105 transition-transform duration-300"
+                  disabled={isLoading}
                 >
-                  {t('contact.sendMessage')}
+                  {isLoading ? t('contact.sending') : t('contact.sendMessage')}
                   <Mail className={`h-4 w-4 group-hover:translate-x-1 transition-transform duration-300 ${isRTL ? 'mr-2 group-hover:-translate-x-1' : 'ms-2'}`} />
                 </Button>
               </form>
