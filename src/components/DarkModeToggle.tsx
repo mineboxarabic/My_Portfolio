@@ -30,12 +30,13 @@ const DarkModeToggle = () => {
       variant="ghost"
       size="icon"
       onClick={toggleDarkMode}
-      className="fixed top-4 right-4 z-50 bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-800 transition-all duration-300"
+      className="fixed top-20 right-3 sm:top-20 sm:right-4 lg:top-3 lg:right-3 xl:top-4 xl:right-4 z-30 h-10 w-10 sm:h-11 sm:w-11 min-h-[44px] min-w-[44px] bg-white/80 dark:bg-gray-800/80 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:bg-white dark:hover:bg-gray-800 transition-all duration-300 shadow-sm"
+      aria-label={isDark ? 'Switch to light mode' : 'Switch to dark mode'}
     >
       {isDark ? (
-        <Sun className="h-5 w-5 text-yellow-500" />
+        <Sun className="h-4 w-4 sm:h-5 sm:w-5 text-yellow-500" />
       ) : (
-        <Moon className="h-5 w-5 text-gray-700" />
+        <Moon className="h-4 w-4 sm:h-5 sm:w-5 text-gray-700" />
       )}
     </Button>
   );
