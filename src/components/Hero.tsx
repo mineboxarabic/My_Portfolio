@@ -1,4 +1,4 @@
-import { ChevronDown, Github, Linkedin, Mail } from "lucide-react";
+import { ChevronDown, Github, Linkedin, Mail, Download } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useEffect, useState } from "react";
 import { useTranslation } from "react-i18next";
@@ -29,10 +29,21 @@ const Hero = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
 
+  const downloadCV = () => {
+    const cvPath = '/Yassin-YOUNES-cv.pdf';
+    const link = document.createElement('a');
+    link.href = cvPath;
+    link.download = 'Yassin-YOUNES-CV.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
   const socialLinks = [
     { icon: Github, url: "https://github.com/yassinyounes", label: "GitHub" },
     { icon: Linkedin, url: "https://linkedin.com/in/yassinyounes", label: "LinkedIn" },
-    { icon: Mail, url: "mailto:yassin.younes@example.com", label: "Email" }
+    { icon: Mail, url: "mailto:contact@yassin-younes.net", label: "Email" }
   ];
 
   return (
@@ -70,6 +81,16 @@ const Hero = () => {
           >
             {t('hero.viewWork')}
             <ChevronDown className={`h-4 w-4 group-hover:translate-y-1 transition-transform duration-300 ${isRTL ? 'mr-2' : 'ms-2'}`} />
+          </Button>
+          
+          <Button
+            onClick={downloadCV}
+            size="lg"
+            variant="outline"
+            className="group hover:scale-105 transition-all duration-300 border-2 border-green-500 text-green-600 hover:bg-green-50 dark:border-green-400 dark:text-green-400 dark:hover:bg-green-900/20"
+          >
+            <Download className={`h-4 w-4 group-hover:translate-y-1 transition-transform duration-300 ${isRTL ? 'ml-2' : 'mr-2'}`} />
+            {t('hero.downloadCV')}
           </Button>
           
           <Button

@@ -12,7 +12,8 @@
     "title": "Je suis un Développeur Full-Stack",
     "subtitle": "Je construis des applications web modernes, réactives et riches en fonctionnalités, du front-end au back-end.",
     "viewWork": "Voir mes projets",
-    "getInTouch": "Contactez-moi"
+    "getInTouch": "Contactez-moi",
+    "downloadCV": "Télécharger CV"
   },
   "projects": {
     "title": "Mes Projets",
