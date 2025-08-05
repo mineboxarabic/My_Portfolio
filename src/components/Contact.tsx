@@ -67,8 +67,8 @@ const Contact = () => {
         `---\n` +
         `Sent from your portfolio contact form`
       );
-      
-      const mailtoLink = `mailto:mineboxarabic@gmail.com?subject=${subject}&body=${body}`;
+
+      const mailtoLink = `mailto:contact@yassin-younes.net?subject=${subject}&body=${body}`;
       window.open(mailtoLink, '_blank');
       
       showSuccess('Email client opened with your message!');
@@ -83,12 +83,12 @@ const Contact = () => {
       if (navigator.clipboard) {
         try {
           await navigator.clipboard.writeText(messageText);
-          showSuccess('Message copied to clipboard! Please email it to mineboxarabic@gmail.com');
+          showSuccess('Message copied to clipboard! Please email it to contact@yassin-younes.net');
         } catch (clipboardError) {
-          showError('Please email your message manually to: mineboxarabic@gmail.com');
+          showError('Please email your message manually to: contact@yassin-younes.net');
         }
       } else {
-        showError('Please email your message manually to: mineboxarabic@gmail.com');
+        showError('Please email your message manually to: contact@yassin-younes.net');
       }
       
       setFormData({ name: '', email: '', message: '' });
@@ -106,9 +106,8 @@ const Contact = () => {
 
   const socialLinks = [
     { icon: Github, label: "GitHub", url: "https://github.com/mineboxarabic" },
-    { icon: Linkedin, label: "LinkedIn", url: "https://linkedin.com/in/mineboxarabic" },
-    { icon: Twitter, label: "Twitter", url: "https://twitter.com/mineboxarabic" },
-    { icon: Mail, label: "Email", url: "mailto:mineboxarabic@gmail.com" }
+    { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/yassin-younes/" },
+    { icon: Mail, label: "Email", url: "mailto:contact@yassin-younes.net" }
   ];
 
   return (
