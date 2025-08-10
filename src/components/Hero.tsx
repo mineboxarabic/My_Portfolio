@@ -30,10 +30,26 @@ const Hero = () => {
   };
 
   const downloadCV = () => {
-    const cvPath = '/Yassin-YOUNES-cv.pdf';
+    // Get current language and select appropriate CV
+    const currentLanguage = i18n.language;
+    let cvPath = '/Yassin-YOUNES-cv.pdf'; // Default French CV
+    let downloadName = 'Yassin-YOUNES-CV.pdf';
+    
+    if (currentLanguage === 'en') {
+      cvPath = '/cv_english.pdf';
+      downloadName = 'Yassin-YOUNES-CV-English.pdf';
+    } else if (currentLanguage === 'fr') {
+      cvPath = '/Yassin-YOUNES-cv.pdf';
+      downloadName = 'Yassin-YOUNES-CV-French.pdf';
+    } else {
+      // For Arabic or any other language, default to French
+      cvPath = '/Yassin-YOUNES-cv.pdf';
+      downloadName = 'Yassin-YOUNES-CV.pdf';
+    }
+    
     const link = document.createElement('a');
     link.href = cvPath;
-    link.download = 'Yassin-YOUNES-CV.pdf';
+    link.download = downloadName;
     link.target = '_blank';
     document.body.appendChild(link);
     link.click();

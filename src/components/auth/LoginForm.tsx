@@ -14,37 +14,22 @@ const LoginForm = ({ onLogin }: LoginFormProps) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [isSignUp, setIsSignUp] = useState(false);
+
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      if (isSignUp) {
-        const { error } = await supabase.auth.signUp({
-          email,
-          password,
-        });
-
-        if (error) {
-          showError(error.message);
-        } else {
-          showSuccess("Account created! Please check your email to verify.");
-          setIsSignUp(false);
-        }
+      const { error } = await supabase.auth.signInWithPassword({
+        email,
+        password,
+      });
+      if (error) {
+        showError(error.message);
       } else {
-        const { error } = await supabase.auth.signInWithPassword({
-          email,
-          password,
-        });
-
-        if (error) {
-          showError(error.message);
-        } else {
-          showSuccess("Logged in successfully!");
-          onLogin();
-        }
+        showSuccess("Logged in successfully!");
+        onLogin();
       }
     } catch (error) {
       showError(`An error occurred: ${error instanceof Error ? error.message : "Unknown error"}`);
@@ -57,10 +42,8 @@ const LoginForm = ({ onLogin }: LoginFormProps) => {
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-gray-900">
       <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle>{isSignUp ? "Create Admin Account" : "Admin Login"}</CardTitle>
-          <CardDescription>
-            {isSignUp ? "Create an account to manage your portfolio" : "Sign in to access the admin panel"}
-          </CardDescription>
+          <CardTitle>Admin Login</CardTitle>
+          <CardDescription>Sign in to access the admin panel</CardDescription>
         </CardHeader>
         <CardContent>
           <form onSubmit={handleSubmit} className="space-y-4">
@@ -87,26 +70,10 @@ const LoginForm = ({ onLogin }: LoginFormProps) => {
               />
             </div>
             <Button type="submit" className="w-full" disabled={loading}>
-              {loading ? "Processing..." : (isSignUp ? "Sign Up" : "Sign In")}
+              {loading ? "Processing..." : "Sign In"}
             </Button>
           </form>
-          <div className="mt-4 text-center text-sm">
-            {isSignUp ? (
-              <>
-                Already have an account?{" "}
-                <Button variant="link" className="p-0 h-auto" onClick={() => setIsSignUp(false)}>
-                  Sign In
-                </Button>
-              </>
-            ) : (
-              <>
-                Don't have an account?{" "}
-                <Button variant="link" className="p-0 h-auto" onClick={() => setIsSignUp(true)}>
-                  Sign Up
-                </Button>
-              </>
-            )}
-          </div>
+
         </CardContent>
       </Card>
     </div>
