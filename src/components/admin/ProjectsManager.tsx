@@ -5,6 +5,7 @@ import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
+import { ProgressWithSteps } from "@/components/ui/progress-with-steps";
 import { Trash2, Edit, Plus, Star, Settings, Upload, Download, BrainCircuit, Loader2 } from "lucide-react";
 import {
   Dialog,
@@ -62,6 +63,15 @@ const ProjectsManager = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [showPromptInput, setShowPromptInput] = useState(false);
   const [generationPrompt, setGenerationPrompt] = useState("");
+  const [generationProgress, setGenerationProgress] = useState(0);
+  const [currentGenerationStep, setCurrentGenerationStep] = useState("");
+
+  const projectGenerationSteps = [
+    { id: "planning", label: "Project Planning", description: "Analyzing requirements and creating project structure..." },
+    { id: "content", label: "Generating Content", description: "Creating comprehensive project details and descriptions..." },
+    { id: "tech", label: "Tech Stack Selection", description: "Selecting optimal technologies and tools..." },
+    { id: "complete", label: "Finalizing", description: "Preparing your project for review..." }
+  ];
 
   const [formData, setFormData] = useState(initialFormData);
 
@@ -276,20 +286,58 @@ const ProjectsManager = () => {
       showError("Please enter a prompt for your project.");
       return;
     }
+    
     setIsGenerating(true);
+    setGenerationProgress(0);
+    setCurrentGenerationStep("planning");
+    
     try {
+      // Step 1: Planning phase (0-25%)
+      setGenerationProgress(10);
+      await new Promise(resolve => setTimeout(resolve, 800));
+      setGenerationProgress(25);
+      setCurrentGenerationStep("content");
+      
+      // Step 2: Content generation (25-50%)
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setGenerationProgress(40);
+      
+      await new Promise(resolve => setTimeout(resolve, 800));
+      setGenerationProgress(50);
+      setCurrentGenerationStep("tech");
+      
+      // Step 3: Make the actual API call
       const { data: newProject, error } = await supabase.functions.invoke('generate-full-project', {
         body: { prompt },
       });
 
-      if (error) throw new Error(error.message);
-      if (newProject.error) throw new Error(newProject.error);
-      if (!newProject) throw new Error("AI generation failed to return project data.");
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(error.message || 'Failed to call generate-full-project function');
+      }
+      
+      if (newProject.error) {
+        console.error('Function returned error:', newProject.error);
+        throw new Error(newProject.error);
+      }
+      
+      if (!newProject) {
+        throw new Error("AI generation failed to return project data.");
+      }
+      
+      // Step 4: Tech stack and finalization (50-100%)
+      setGenerationProgress(70);
+      await new Promise(resolve => setTimeout(resolve, 600));
+      
+      setGenerationProgress(85);
+      setCurrentGenerationStep("complete");
+      
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setGenerationProgress(100);
       
       showSuccess("New project generated! Please review and save.");
       
       await fetchProjects();
-      
       handleEdit(newProject as Project);
       
       // Reset the prompt input
@@ -297,9 +345,15 @@ const ProjectsManager = () => {
       setGenerationPrompt("");
 
     } catch (err) {
+      console.error('Project generation error:', err);
       showError(err instanceof Error ? err.message : 'Failed to generate project.');
     } finally {
-      setIsGenerating(false);
+      // Reset progress after a short delay
+      setTimeout(() => {
+        setIsGenerating(false);
+        setGenerationProgress(0);
+        setCurrentGenerationStep("");
+      }, 1000);
     }
   };
 
@@ -369,6 +423,15 @@ const ProjectsManager = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
+              {isGenerating && (
+                <ProgressWithSteps
+                  steps={projectGenerationSteps}
+                  currentStep={currentGenerationStep}
+                  progress={generationProgress}
+                  isComplete={generationProgress === 100}
+                />
+              )}
+              
               <div>
                 <Label htmlFor="ai-prompt">Describe your project idea</Label>
                 <Textarea
@@ -398,12 +461,14 @@ const ProjectsManager = () => {
                 <Button 
                   variant="outline"
                   onClick={() => {
-                    setShowPromptInput(false);
-                    setGenerationPrompt("");
+                    if (!isGenerating) {
+                      setShowPromptInput(false);
+                      setGenerationPrompt("");
+                    }
                   }}
                   disabled={isGenerating}
                 >
-                  Cancel
+                  {isGenerating ? "Generating..." : "Cancel"}
                 </Button>
               </div>
             </div>

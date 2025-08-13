@@ -5,6 +5,8 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Trash2, Edit, Plus, RefreshCw, Loader2, BrainCircuit } from "lucide-react";
+import { Textarea } from "@/components/ui/textarea";
+import { ProgressWithSteps } from "@/components/ui/progress-with-steps";
 import { supabase } from "@/integrations/supabase/client";
 import { showSuccess, showError } from "@/utils/toast";
 import MultiLingualInput from "./inputs/MultiLingualInput";
@@ -12,7 +14,6 @@ import MultiLingualTextarea from "./inputs/MultiLingualTextarea";
 import { getTranslatedText, Translatable } from "@/utils/translations";
 import { useTranslation } from "react-i18next";
 import MultiLingualRichTextEditor from "./inputs/MultiLingualRichTextEditor";
-import { Textarea } from "@/components/ui/textarea";
 import ImageUpload from "./inputs/ImageUpload";
 
 interface Post {
@@ -47,6 +48,17 @@ const BlogManager = () => {
   const [isGenerating, setIsGenerating] = useState(false);
   const [showPromptInput, setShowPromptInput] = useState(false);
   const [generationTopic, setGenerationTopic] = useState("");
+  const [generationProgress, setGenerationProgress] = useState(0);
+  const [currentGenerationStep, setCurrentGenerationStep] = useState("");
+
+  const blogGenerationSteps = [
+    { id: "content", label: "Generating Content", description: "Creating comprehensive multilingual blog post content..." },
+    { id: "image", label: "Creating Image", description: "Generating custom header image with DALL-E..." },
+    { id: "upload", label: "Processing Image", description: "Uploading and optimizing the generated image..." },
+    { id: "complete", label: "Finalizing", description: "Preparing your blog post for review..." }
+  ];
+
+
 
   const [formData, setFormData] = useState({
     title: { ...emptyTranslatable },
@@ -203,22 +215,73 @@ const BlogManager = () => {
       showError("Please enter a topic.");
       return;
     }
+    
+    console.log('Starting blog generation with topic:', generationTopic);
+    
     setIsGenerating(true);
+    setGenerationProgress(0);
+    setCurrentGenerationStep("content");
+    
     try {
+      // Step 1: Start content generation (0-10%)
+      setGenerationProgress(10);
+      
+      // Simulate realistic timing for content generation
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setGenerationProgress(25);
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setGenerationProgress(40);
+      
+      console.log('Making request to generate-blog-post function...');
+      
+      // Make the actual API call
       const { data, error } = await supabase.functions.invoke('generate-blog-post', {
         body: { topic: generationTopic },
       });
 
-      if (error) throw new Error(error.message);
-      if (data.error) throw new Error(data.error);
+      console.log('Function response:', { data, error });
 
+      if (error) {
+        console.error('Supabase function error:', error);
+        throw new Error(`Function error: ${error.message || JSON.stringify(error)}`);
+      }
+      
+      if (data?.error) {
+        console.error('Function returned error:', data.error);
+        throw new Error(data.error);
+      }
+
+      if (!data) {
+        console.error('No data returned from function');
+        throw new Error('No data returned from function');
+      }
+
+      console.log('Function data received:', data);
+
+      // Step 2: Content generated, now processing image (40-70%)
+      setGenerationProgress(60);
+      setCurrentGenerationStep("image");
+      
+      await new Promise(resolve => setTimeout(resolve, 1000));
+      setGenerationProgress(75);
+      setCurrentGenerationStep("upload");
+      
+      await new Promise(resolve => setTimeout(resolve, 800));
+      setGenerationProgress(90);
+      setCurrentGenerationStep("complete");
+      
+      await new Promise(resolve => setTimeout(resolve, 500));
+      setGenerationProgress(100);
+
+      // Set form data
       resetForm();
       setFormData({
-        title: data.title,
-        excerpt: data.excerpt,
-        content: data.content,
-        slug: slugify(data.title.en),
-        featured_image_url: data.featured_image_url,
+        title: data.title || { en: "", fr: "", ar: "" },
+        excerpt: data.excerpt || { en: "", fr: "", ar: "" },
+        content: data.content || { en: "", fr: "", ar: "" },
+        slug: data.title?.en ? slugify(data.title.en) : "",
+        featured_image_url: data.featured_image_url || "",
       });
       
       setIsCreating(true);
@@ -228,9 +291,16 @@ const BlogManager = () => {
       showSuccess("Blog post generated! Please review and save.");
 
     } catch (err) {
-      showError(err instanceof Error ? err.message : 'Failed to generate blog post.');
+      console.error('Blog generation error:', err);
+      const errorMessage = err instanceof Error ? err.message : 'Failed to generate blog post';
+      showError(`Generation failed: ${errorMessage}`);
     } finally {
-      setIsGenerating(false);
+      // Reset progress after a short delay
+      setTimeout(() => {
+        setIsGenerating(false);
+        setGenerationProgress(0);
+        setCurrentGenerationStep("");
+      }, 1000);
     }
   };
 
@@ -306,6 +376,15 @@ const BlogManager = () => {
           </CardHeader>
           <CardContent>
             <div className="space-y-4">
+              {isGenerating && (
+                <ProgressWithSteps
+                  steps={blogGenerationSteps}
+                  currentStep={currentGenerationStep}
+                  progress={generationProgress}
+                  isComplete={generationProgress === 100}
+                />
+              )}
+              
               <div>
                 <Label htmlFor="topic">Blog Post Topic/Prompt</Label>
                 <Textarea
@@ -315,6 +394,7 @@ const BlogManager = () => {
                   placeholder="e.g., 'A detailed blog post about the future of web development, focusing on AI, WebAssembly, and serverless architecture. The tone should be informative but accessible to a non-technical audience.'"
                   rows={4}
                   className="mt-1"
+                  disabled={isGenerating}
                 />
               </div>
               <div className="flex gap-2">
@@ -331,8 +411,13 @@ const BlogManager = () => {
                     "Generate"
                   )}
                 </Button>
-                <Button variant="outline" onClick={() => setShowPromptInput(false)}>
-                  Cancel
+                <Button variant="outline" onClick={() => {
+                  if (!isGenerating) {
+                    setShowPromptInput(false);
+                    setGenerationTopic("");
+                  }
+                }} disabled={isGenerating}>
+                  {isGenerating ? "Generating..." : "Cancel"}
                 </Button>
               </div>
             </div>
