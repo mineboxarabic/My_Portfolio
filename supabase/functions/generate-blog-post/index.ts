@@ -14,7 +14,7 @@ const openai = new OpenAI({
 // Helper function to call OpenAI API
 async function getCompletion(systemPrompt: string, userPrompt: string, isJson = false) {
   const response = await openai.chat.completions.create({
-    model: "gpt-4-turbo",
+    model: "gpt-4o-mini", // Switched to faster model
     messages: [
       { role: "system", content: systemPrompt },
       { role: "user", content: userPrompt },
@@ -53,21 +53,95 @@ serve(async (req) => {
       Deno.env.get('SUPABASE_SERVICE_ROLE_KEY') ?? ''
     )
 
-    // 1. Generate English content
-    const generationSystemPrompt = `You are an expert blog post writer. Given a topic, you will generate a comprehensive and engaging blog post.
+    // 1. Generate multilingual content in one call
+    const generationSystemPrompt = `You are an expert multilingual blog post writer and researcher. Given a topic, you will generate a comprehensive, detailed, and engaging blog post in English, French, and Arabic with well-researched content and valuable resources.
+
     Your response must be a JSON object with the following structure:
     {
-      "title": "A catchy and SEO-friendly title for the blog post.",
-      "excerpt": "A concise and compelling summary of the blog post, around 2-3 sentences.",
-      "content": "The full content of the blog post in well-structured HTML format. Use headings (h2, h3), paragraphs (p), lists (ul, li), and bold text (strong) to format the content."
-    }`
-    const userPromptForText = `Topic: ${topic}. Please write a well-researched and detailed blog post on this topic. Ensure the information is accurate and up-to-date.`
-    const englishContentJson = await getCompletion(generationSystemPrompt, userPromptForText, true)
-    if (!englishContentJson) throw new Error("Failed to generate English content.")
-    const englishContent = JSON.parse(englishContentJson)
+      "title": {"en": "English title", "fr": "French title", "ar": "Arabic title"},
+      "excerpt": {"en": "English excerpt", "fr": "French excerpt", "ar": "Arabic excerpt"},
+      "content": {"en": "English content in HTML", "fr": "French content in HTML", "ar": "Arabic content in HTML"}
+    }
+    
+    CONTENT STRUCTURE REQUIREMENTS:
+    1. **Introduction** (2-3 paragraphs): Hook the reader and provide context
+    2. **Main Content** (4-6 detailed sections): Each with h2/h3 headings, comprehensive explanations, examples, and practical insights
+    3. **Key Takeaways** (bullet points): 5-7 actionable insights
+    4. **Resources Section**: Must include this exact HTML structure with real, valuable resources:
+    
+    <h2>📚 Useful Resources</h2>
+    <div class="resources-section" style="background: #f8f9fa; padding: 20px; border-radius: 8px; margin: 20px 0;">
+      <h3>🔗 Essential Links</h3>
+      <ul style="list-style-type: none; padding: 0;">
+        <li style="margin: 10px 0; padding: 10px; background: white; border-radius: 5px; border-left: 4px solid #007bff;">
+          <strong><a href="[REAL_URL]" target="_blank" rel="noopener">[Resource Title]</a></strong><br>
+          <span style="color: #666; font-size: 14px;">[Brief description of what this resource offers]</span>
+        </li>
+        <!-- Repeat for 4-6 resources -->
+      </ul>
+      
+      <h3>📖 Recommended Reading</h3>
+      <ul style="list-style-type: none; padding: 0;">
+        <li style="margin: 10px 0; padding: 10px; background: white; border-radius: 5px; border-left: 4px solid #28a745;">
+          <strong>"[Book/Article Title]"</strong> by [Author]<br>
+          <span style="color: #666; font-size: 14px;">[Why this is valuable for the topic]</span>
+        </li>
+        <!-- Repeat for 3-4 books/articles -->
+      </ul>
+      
+      <h3>🛠️ Tools & Platforms</h3>
+      <ul style="list-style-type: none; padding: 0;">
+        <li style="margin: 10px 0; padding: 10px; background: white; border-radius: 5px; border-left: 4px solid #fd7e14;">
+          <strong>[Tool Name]</strong> - <a href="[REAL_URL]" target="_blank" rel="noopener">[Website]</a><br>
+          <span style="color: #666; font-size: 14px;">[What this tool does and why it's useful]</span>
+        </li>
+        <!-- Repeat for 3-5 tools -->
+      </ul>
+    </div>
+    
+    5. **Conclusion** (1-2 paragraphs): Summarize key points and call-to-action
+    
+    QUALITY STANDARDS:
+    - Write 2000+ words of substantial, well-researched content
+    - Include real URLs, tools, books, and resources (not placeholders)
+    - Use proper HTML formatting (h2, h3, p, ul, li, strong, em)
+    - Add practical examples, case studies, or real-world applications
+    - Ensure cultural appropriateness for each language
+    - For Arabic: Use Modern Standard Arabic (MSA)
+    - For French: Use proper grammar and cultural context
+    - Make content comprehensive, SEO-friendly, and actionable
+    - Include statistics, trends, or current data when relevant
+    
+    RESOURCE REQUIREMENTS:
+    - All links must be real, working URLs to valuable resources
+    - Include a mix of official documentation, tutorials, tools, and educational content
+    - Provide 10-15 total resources across the three categories
+    - Each resource must have a clear description of its value`
+    
+    const userPromptForText = `Topic: ${topic}
+
+Please write a comprehensive, detailed, and well-researched blog post on this topic in English, French, and Arabic. 
+
+SPECIFIC REQUIREMENTS:
+1. Make it extremely detailed with practical insights and actionable advice
+2. Include real statistics, current trends, and up-to-date information
+3. Add concrete examples and case studies
+4. Create a comprehensive resources section with:
+   - Real, working links to valuable websites, documentation, and tools
+   - Recommended books and articles by actual authors
+   - Useful tools and platforms with their actual URLs
+   - Educational resources and tutorials
+5. Ensure the content is 2000+ words and provides genuine value
+6. Make it engaging and easy to follow with clear structure
+7. Include practical tips that readers can immediately apply
+
+Focus on creating content that would be genuinely helpful to someone learning about this topic, with real resources they can explore further.`
+    const multilingualContentJson = await getCompletion(generationSystemPrompt, userPromptForText, true)
+    if (!multilingualContentJson) throw new Error("Failed to generate multilingual content.")
+    const contentData = JSON.parse(multilingualContentJson)
 
     // 2. Generate image with DALL-E 3
-    const imageGenerationPrompt = `A high-quality, vibrant, and professional blog post header image for an article titled: "${englishContent.title}". Style: photorealistic, clean, modern. No text in the image.`;
+    const imageGenerationPrompt = `A high-quality, vibrant, and professional blog post header image for an article titled: "${contentData.title.en}". Style: photorealistic, clean, modern. No text in the image.`;
     const imageResponse = await openai.images.generate({
       model: "dall-e-3",
       prompt: imageGenerationPrompt,
@@ -82,7 +156,7 @@ serve(async (req) => {
     const imageRes = await fetch(generatedImageUrl);
     if (!imageRes.ok) throw new Error("Failed to fetch the generated image from DALL-E URL.");
     const imageBlob = await imageRes.blob();
-    const filePath = `public/${Date.now()}-${slugify(englishContent.title)}.png`;
+    const filePath = `public/${Date.now()}-${slugify(contentData.title.en)}.png`;
 
     const { data: uploadData, error: uploadError } = await supabaseAdmin.storage
       .from('blog-images')
@@ -98,22 +172,11 @@ serve(async (req) => {
       .getPublicUrl(uploadData.path);
     const publicImageUrl = publicUrlData.publicUrl;
 
-    // 4. Translate the content
-    const translationSystemPrompt = "You are an expert translator. Translate the following text accurately and naturally. Return only the translated text."
-    const [title_fr, title_ar, excerpt_fr, excerpt_ar, content_fr, content_ar] = await Promise.all([
-      getCompletion(translationSystemPrompt, `Translate to French: ${englishContent.title}`),
-      getCompletion(translationSystemPrompt, `Translate to Arabic: ${englishContent.title}`),
-      getCompletion(translationSystemPrompt, `Translate to French: ${englishContent.excerpt}`),
-      getCompletion(translationSystemPrompt, `Translate to Arabic: ${englishContent.excerpt}`),
-      getCompletion(translationSystemPrompt, `Translate to French: ${englishContent.content}`),
-      getCompletion(translationSystemPrompt, `Translate to Arabic: ${englishContent.content}`),
-    ])
-
-    // 5. Construct the final response
+    // 4. Construct the final response (no translation needed - already multilingual)
     const responseData = {
-      title: { en: englishContent.title, fr: title_fr, ar: title_ar },
-      excerpt: { en: englishContent.excerpt, fr: excerpt_fr, ar: excerpt_ar },
-      content: { en: englishContent.content, fr: content_fr, ar: content_ar },
+      title: contentData.title,
+      excerpt: contentData.excerpt,
+      content: contentData.content,
       featured_image_url: publicImageUrl,
     }
 

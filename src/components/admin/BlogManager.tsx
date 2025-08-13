@@ -5,15 +5,6 @@ import { Label } from "@/components/ui/label";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Trash2, Edit, Plus, RefreshCw, Loader2, BrainCircuit } from "lucide-react";
-import {
-  Dialog,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-  DialogTrigger,
-} from "@/components/ui/dialog";
 import { supabase } from "@/integrations/supabase/client";
 import { showSuccess, showError } from "@/utils/toast";
 import MultiLingualInput from "./inputs/MultiLingualInput";
@@ -54,8 +45,8 @@ const BlogManager = () => {
   const [isCreating, setIsCreating] = useState(false);
   const [loading, setLoading] = useState(true);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [showPromptInput, setShowPromptInput] = useState(false);
   const [generationTopic, setGenerationTopic] = useState("");
-  const [isGenerationDialogOpen, setIsGenerationDialogOpen] = useState(false);
 
   const [formData, setFormData] = useState({
     title: { ...emptyTranslatable },
@@ -232,7 +223,8 @@ const BlogManager = () => {
       
       setIsCreating(true);
       setEditingPost(null);
-      setIsGenerationDialogOpen(false);
+      setGenerationTopic("");
+      setShowPromptInput(false);
       showSuccess("Blog post generated! Please review and save.");
 
     } catch (err) {
@@ -293,21 +285,28 @@ const BlogManager = () => {
             <RefreshCw className="h-4 w-4 mr-2" />
             Fix Empty Slugs
           </Button>
-          <Dialog open={isGenerationDialogOpen} onOpenChange={setIsGenerationDialogOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline">
-                <BrainCircuit className="h-4 w-4 mr-2" />
-                Generate Post with AI
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Generate a New Blog Post</DialogTitle>
-                <DialogDescription>
-                  Enter a detailed topic or prompt, and the AI will write a complete, multi-language blog post with a featured image for you.
-                </DialogDescription>
-              </DialogHeader>
-              <div className="py-4">
+          <Button variant="outline" onClick={() => setShowPromptInput(!showPromptInput)}>
+            <BrainCircuit className="h-4 w-4 mr-2" />
+            Generate Post with AI
+          </Button>
+          <Button onClick={() => { resetForm(); setIsCreating(true); }}>
+            <Plus className="h-4 w-4 mr-2" />
+            Add Post
+          </Button>
+        </div>
+      </div>
+      
+      {showPromptInput && (
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle>Generate Blog Post with AI</CardTitle>
+            <p className="text-sm text-muted-foreground">
+              Enter a detailed topic or prompt, and the AI will write a complete, multi-language blog post with a featured image for you.
+            </p>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div>
                 <Label htmlFor="topic">Blog Post Topic/Prompt</Label>
                 <Textarea
                   id="topic"
@@ -318,7 +317,7 @@ const BlogManager = () => {
                   className="mt-1"
                 />
               </div>
-              <DialogFooter>
+              <div className="flex gap-2">
                 <Button
                   onClick={handleGeneratePost}
                   disabled={isGenerating || !generationTopic}
@@ -332,15 +331,15 @@ const BlogManager = () => {
                     "Generate"
                   )}
                 </Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
-          <Button onClick={() => { resetForm(); setIsCreating(true); }}>
-            <Plus className="h-4 w-4 mr-2" />
-            Add Post
-          </Button>
-        </div>
-      </div>
+                <Button variant="outline" onClick={() => setShowPromptInput(false)}>
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
+      
       <div className="grid gap-4">
         {posts.map((post) => (
           <Card key={post.id}>

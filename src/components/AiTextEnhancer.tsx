@@ -6,6 +6,7 @@ import { Sparkles, Wand, Loader2, BrainCircuit, ArrowRight, X } from 'lucide-rea
 import { supabase } from '@/integrations/supabase/client';
 import { showError, showSuccess } from '@/utils/toast';
 import { useTranslation } from 'react-i18next';
+import { createPortal } from 'react-dom';
 
 export const AiTextEnhancer = () => {
   const { activeElement, updateActiveElementValue, updateMultilingualValue, mousePosition, preservedElement } = useAiTextEditor();
@@ -78,25 +79,37 @@ export const AiTextEnhancer = () => {
       const popupWidth = popupRef.current?.offsetWidth || 200;
       const popupHeight = popupRef.current?.offsetHeight || 50;
       
-      let left = mousePosition.x + window.scrollX + 15;
-      let top = mousePosition.y + window.scrollY + 15;
+      // Use viewport coordinates for fixed positioning
+      let left = mousePosition.x + 15;
+      let top = mousePosition.y + 15;
 
       // Adjust if it goes off-screen horizontally
-      if (left + popupWidth > window.innerWidth + window.scrollX) {
-        left = mousePosition.x + window.scrollX - popupWidth - 15;
+      if (left + popupWidth > window.innerWidth) {
+        left = mousePosition.x - popupWidth - 15;
       }
       // Adjust if it goes off-screen vertically
-      if (top + popupHeight > window.innerHeight + window.scrollY) {
-        top = mousePosition.y + window.scrollY - popupHeight - 15;
+      if (top + popupHeight > window.innerHeight) {
+        top = mousePosition.y - popupHeight - 15;
       }
 
       setFixedPosition({ top, left });
     } else if (targetElement && !fixedPosition) {
       // Fallback positioning if we have an element but no mouse position
-      // Position it near the element
+      // Position it near the element using viewport coordinates
       const rect = targetElement.getBoundingClientRect();
-      const left = rect.right + window.scrollX + 10;
-      const top = rect.top + window.scrollY;
+      let left = rect.right + 10;
+      let top = rect.top;
+
+      const popupWidth = popupRef.current?.offsetWidth || 200;
+      const popupHeight = popupRef.current?.offsetHeight || 50;
+
+      if (left + popupWidth > window.innerWidth) {
+        left = Math.max(10, window.innerWidth - popupWidth - 10);
+      }
+      if (top + popupHeight > window.innerHeight) {
+        top = Math.max(10, window.innerHeight - popupHeight - 10);
+      }
+
       setFixedPosition({ top, left });
     }
   }, [activeElement, preservedElement, mousePosition, isExpanded, mode]);
@@ -292,10 +305,12 @@ export const AiTextEnhancer = () => {
   }
 
   const popupStyle: React.CSSProperties = {
-    position: 'absolute',
+    position: 'fixed',
     top: `${fixedPosition.top}px`,
     left: `${fixedPosition.left}px`,
-    zIndex: 100,
+    zIndex: 99999, // Higher z-index
+    pointerEvents: 'auto',
+    isolation: 'isolate', // Create new stacking context
   };
 
   const renderContent = () => {
@@ -309,6 +324,7 @@ export const AiTextEnhancer = () => {
             onChange={(e) => setPromptText(e.target.value)}
             className="text-sm min-h-[80px] resize-none"
             disabled={isLoading}
+            autoFocus
             onKeyDown={(e) => {
               if ((e.metaKey || e.ctrlKey) && e.key === 'Enter') {
                 onPromptSubmit(e);
@@ -387,21 +403,12 @@ export const AiTextEnhancer = () => {
     );
   };
 
-  return (
+  return createPortal(
     <div
       ref={popupRef}
       style={popupStyle}
       data-ai-popup="true"
       className={`bg-background border rounded-lg shadow-lg flex flex-col animate-fade-in ${mode === 'prompting' ? 'w-80' : ''}`}
-      onMouseDown={(e) => {
-        // Prevent the popup from disappearing when clicking on it
-        e.preventDefault();
-        e.stopPropagation();
-      }}
-      onClick={(e) => {
-        // Prevent click events from bubbling up
-        e.stopPropagation();
-      }}
     >
       {/* Multilingual indicator */}
       {isMultilingualInput(targetElement) && (
@@ -411,6 +418,7 @@ export const AiTextEnhancer = () => {
         </div>
       )}
       {renderContent()}
-    </div>
+    </div>,
+    document.body
   );
 };

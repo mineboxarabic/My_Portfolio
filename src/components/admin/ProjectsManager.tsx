@@ -60,8 +60,8 @@ const ProjectsManager = () => {
   const [loading, setLoading] = useState(true);
   const [editingDetails, setEditingDetails] = useState<string | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [showPromptInput, setShowPromptInput] = useState(false);
   const [generationPrompt, setGenerationPrompt] = useState("");
-  const [isGenerationDialogOpen, setIsGenerationDialogOpen] = useState(false);
 
   const [formData, setFormData] = useState(initialFormData);
 
@@ -271,15 +271,15 @@ const ProjectsManager = () => {
     event.target.value = '';
   };
 
-  const handleGenerateProject = async () => {
-    if (!generationPrompt) {
+  const handleGenerateProject = async (prompt: string) => {
+    if (!prompt.trim()) {
       showError("Please enter a prompt for your project.");
       return;
     }
     setIsGenerating(true);
     try {
       const { data: newProject, error } = await supabase.functions.invoke('generate-full-project', {
-        body: { prompt: generationPrompt },
+        body: { prompt },
       });
 
       if (error) throw new Error(error.message);
@@ -292,7 +292,8 @@ const ProjectsManager = () => {
       
       handleEdit(newProject as Project);
       
-      setIsGenerationDialogOpen(false);
+      // Reset the prompt input
+      setShowPromptInput(false);
       setGenerationPrompt("");
 
     } catch (err) {
@@ -339,38 +340,14 @@ const ProjectsManager = () => {
             <Download className="h-4 w-4 mr-2" />
             Export
           </Button>
-          <Dialog open={isGenerationDialogOpen} onOpenChange={setIsGenerationDialogOpen}>
-            <DialogTrigger asChild>
-              <Button variant="outline">
-                <BrainCircuit className="h-4 w-4 mr-2" />
-                Generate with AI
-              </Button>
-            </DialogTrigger>
-            <DialogContent>
-              <DialogHeader>
-                <DialogTitle>Generate New Project with AI</DialogTitle>
-                <DialogDescription>
-                  Describe your project idea. The AI will generate a name, description, tech stack, and a thumbnail image to get you started.
-                </DialogDescription>
-              </DialogHeader>
-              <div className="py-4">
-                <Label htmlFor="prompt">Project Idea</Label>
-                <Textarea
-                  id="prompt"
-                  value={generationPrompt}
-                  onChange={(e) => setGenerationPrompt(e.target.value)}
-                  placeholder="e.g., 'A real-time chat application using React, Socket.io, and a Node.js backend.'"
-                  rows={4}
-                  className="mt-1"
-                />
-              </div>
-              <DialogFooter>
-                <Button onClick={handleGenerateProject} disabled={isGenerating || !generationPrompt}>
-                  {isGenerating ? <><Loader2 className="mr-2 h-4 w-4 animate-spin" />Generating...</> : "Generate Project"}
-                </Button>
-              </DialogFooter>
-            </DialogContent>
-          </Dialog>
+          <Button 
+            variant="outline"
+            onClick={() => setShowPromptInput(!showPromptInput)}
+            disabled={isGenerating}
+          >
+            <BrainCircuit className="h-4 w-4 mr-2" />
+            Generate with AI
+          </Button>
           <Button
             onClick={() => {
               setIsCreating(true);
@@ -384,6 +361,55 @@ const ProjectsManager = () => {
           </Button>
         </div>
       </div>
+
+      {showPromptInput && (
+        <Card className="mb-6">
+          <CardHeader>
+            <CardTitle>Generate Project with AI</CardTitle>
+          </CardHeader>
+          <CardContent>
+            <div className="space-y-4">
+              <div>
+                <Label htmlFor="ai-prompt">Describe your project idea</Label>
+                <Textarea
+                  id="ai-prompt"
+                  value={generationPrompt}
+                  onChange={(e) => setGenerationPrompt(e.target.value)}
+                  placeholder="e.g., 'A real-time chat application using React, Socket.io, and a Node.js backend'"
+                  rows={3}
+                  className="mt-1"
+                  disabled={isGenerating}
+                />
+              </div>
+              <div className="flex gap-2">
+                <Button 
+                  onClick={() => handleGenerateProject(generationPrompt)}
+                  disabled={isGenerating || !generationPrompt.trim()}
+                >
+                  {isGenerating ? (
+                    <>
+                      <Loader2 className="mr-2 h-4 w-4 animate-spin" />
+                      Generating...
+                    </>
+                  ) : (
+                    "Generate Project"
+                  )}
+                </Button>
+                <Button 
+                  variant="outline"
+                  onClick={() => {
+                    setShowPromptInput(false);
+                    setGenerationPrompt("");
+                  }}
+                  disabled={isGenerating}
+                >
+                  Cancel
+                </Button>
+              </div>
+            </div>
+          </CardContent>
+        </Card>
+      )}
 
       {(isCreating || editingProject) && (
         <Card>

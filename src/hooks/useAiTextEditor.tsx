@@ -36,21 +36,50 @@ export const AiTextEditorProvider = ({ children }: { children: React.ReactNode }
       return;
     }
     
+    // Check if we're in admin area
+    const isInAdmin = window.location.pathname.includes('/admin');
+    
+    // If not clicking on a text input/textarea and we're in admin, hide the AI popup
+    if (isInAdmin && !(
+      (target.tagName === 'INPUT' && (target as HTMLInputElement).type === 'text') ||
+      target.tagName === 'TEXTAREA' ||
+      (target.isContentEditable && target.closest('.ProseMirror'))
+    )) {
+      // Clear active element and hide popup when clicking on non-text elements
+      setActiveElement(null);
+      setPreservedElement(null);
+      if (blurTimeoutRef.current) {
+        clearTimeout(blurTimeoutRef.current);
+        blurTimeoutRef.current = null;
+      }
+    }
+    
     setMousePosition({ x: event.clientX, y: event.clientY });
   }, []);
 
   const handleFocusIn = useCallback((event: FocusEvent) => {
     const target = event.target as HTMLElement;
     
-    // Don't change active/preserved elements if focusing on AI popup elements
+    // Allow focus on AI popup elements but don't change active/preserved elements
     if (target.closest('[data-ai-popup="true"]')) {
+      // Clear any pending blur timeout when focusing AI popup elements
+      if (blurTimeoutRef.current) {
+        clearTimeout(blurTimeoutRef.current);
+        blurTimeoutRef.current = null;
+      }
       return;
     }
     
+    // Check if we're in admin area - only show AI popup in admin
+    const isInAdmin = window.location.pathname.includes('/admin');
+    
     if (
-      (target.tagName === 'INPUT' && (target as HTMLInputElement).type === 'text') ||
-      target.tagName === 'TEXTAREA' ||
-      (target.isContentEditable && target.closest('.ProseMirror'))
+      isInAdmin && // Only show in admin area
+      (
+        (target.tagName === 'INPUT' && (target as HTMLInputElement).type === 'text') ||
+        target.tagName === 'TEXTAREA' ||
+        (target.isContentEditable && target.closest('.ProseMirror'))
+      )
     ) {
       if (blurTimeoutRef.current) {
         clearTimeout(blurTimeoutRef.current);
