@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800" height="600" viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="800" height="600" fill="#f8fafc"/>
+  
+  <!-- Login Card -->
+  <rect x="250" y="150" width="300" height="350" rx="12" fill="white" stroke="#e2e8f0" stroke-width="1"/>
+  
+  <!-- Logo placeholder -->
+  <circle cx="400" cy="220" r="30" fill="#3b82f6"/>
+  <text x="400" y="225" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">AP</text>
+  
+  <!-- Title -->
+  <text x="400" y="270" text-anchor="middle" fill="#1e293b" font-family="Arial" font-size="24" font-weight="bold">Admin Login</text>
+  
+  <!-- Email field -->
+  <rect x="275" y="300" width="250" height="40" rx="6" fill="#f8fafc" stroke="#d1d5db"/>
+  <text x="285" y="323" fill="#64748b" font-family="Arial" font-size="14">admin@example.com</text>
+  
+  <!-- Password field -->
+  <rect x="275" y="355" width="250" height="40" rx="6" fill="#f8fafc" stroke="#d1d5db"/>
+  <text x="285" y="378" fill="#64748b" font-family="Arial" font-size="14">••••••••</text>
+  
+  <!-- Login button -->
+  <rect x="275" y="415" width="250" height="45" rx="6" fill="#3b82f6"/>
+  <text x="400" y="442" text-anchor="middle" fill="white" font-family="Arial" font-size="16" font-weight="bold">Sign In</text>
+  
+  <!-- Security notice -->
+  <text x="400" y="485" text-anchor="middle" fill="#64748b" font-family="Arial" font-size="12">Secure admin access</text>
+</svg>
